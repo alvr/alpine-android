@@ -4,13 +4,13 @@
 [![](https://images.microbadger.com/badges/image/alvrme/alpine-android.svg)](https://microbadger.com/images/alvrme/alpine-android)
 
 ## Content
-* OpenJDK 1.8.0_121
-* SDK Platform Android 7.1.1, API 25, revision 3
-* Android SDK Platform-tools, revision 25.0.6
-* Android SDK Build-tools, revision 25.0.3
+* OpenJDK 1.8.0_131
+* SDK Platform Android 8, API 26, revision 1
+* Android SDK Platform-tools, revision 26
+* Android SDK Build-tools, revision 26.0.1
 * Android Support Repository, revision 47
-* Google Play services, revision 40
-* Google Repository, revision 51
+* Google Play services, revision 43
+* Google Repository, revision 57
 
 ---
 
