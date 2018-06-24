@@ -8,11 +8,11 @@
 Path                               | Version | Description                    | Location
 -------                            | ------- | -------                        | -------
 build-tools;21.1.2                 | 21.1.2  | Android SDK Build-Tools 21.1.2 | build-tools/21.1.2/
-emulator                           | 27.1.12 | Android Emulator               | emulator/
+emulator                           | 27.2.9  | Android Emulator               | emulator/
 extras;android;m2repository        | 47.0.0  | Android Support Repository     | extras/android/m2repository/
-extras;google;google_play_services | 48      | Google Play services           | extras/google/google_play_services/
+extras;google;google_play_services | 49      | Google Play services           | extras/google/google_play_services/
 extras;google;m2repository         | 58      | Google Repository              | extras/google/m2repository/
 patcher;v4                         | 1       | SDK Patch Applier v4           | patcher/v4/
-platform-tools                     | 27.0.1  | Android SDK Platform-Tools     | platform-tools/
+platform-tools                     | 28.0.0  | Android SDK Platform-Tools     | platform-tools/
 platforms;android-21               | 2       | Android SDK Platform 21        | platforms/android-21/
-tools                              | 26.1.1  | Android SDK Tools              | tools/
+tools                              | 26.1.1  | Android SDK Tools 26.1.1       | tools/
