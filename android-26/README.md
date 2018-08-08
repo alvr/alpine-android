@@ -8,7 +8,7 @@
 Path                               | Version | Description                    | Location
 -------                            | ------- | -------                        | -------
 build-tools;26.0.3                 | 26.0.3  | Android SDK Build-Tools 26.0.3 | build-tools/26.0.3/
-emulator                           | 27.2.9  | Android Emulator               | emulator/
+emulator                           | 27.3.9  | Android Emulator               | emulator/
 extras;android;m2repository        | 47.0.0  | Android Support Repository     | extras/android/m2repository/
 extras;google;google_play_services | 49      | Google Play services           | extras/google/google_play_services/
 extras;google;m2repository         | 58      | Google Repository              | extras/google/m2repository/

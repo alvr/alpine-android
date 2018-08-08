@@ -1,5 +1,5 @@
 FROM openjdk:8-alpine
-LABEL maintainer Álvaro S. <alvaro@alvr.me>
+LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
 ENV SDK_TOOLS "4333796"
 ENV BUILD_TOOLS "24.0.3"
