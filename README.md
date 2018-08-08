@@ -13,7 +13,8 @@ All images are based on openjdk:8-alpine (JDK 8.171.11-r0)
 | Android 24 (7.0) | `docker pull alvrme/alpine-android:android-24` | [Info](https://github.com/alvr/alpine-android/tree/master/android-24) |
 | Android 25 (7.1) | `docker pull alvrme/alpine-android:android-25` | [Info](https://github.com/alvr/alpine-android/tree/master/android-25) |
 | Android 26 (8.0) | `docker pull alvrme/alpine-android:android-26` | [Info](https://github.com/alvr/alpine-android/tree/master/android-26) |
-| Android 27 (8.1) | `docker pull alvrme/alpine-android:latest`     | [Info](https://github.com/alvr/alpine-android/tree/master/android-27) |
+| Android 27 (8.1) | `docker pull alvrme/alpine-android:android-27` | [Info](https://github.com/alvr/alpine-android/tree/master/android-27) |
+| Android 28 (9.0) | `docker pull alvrme/alpine-android:android-28` | [Info](https://github.com/alvr/alpine-android/tree/master/android-28) |
 
 
 ### Use as Base Image
@@ -25,4 +26,5 @@ All images are based on openjdk:8-alpine (JDK 8.171.11-r0)
 | Android 24 (7.0) | `FROM alvrme/alpine-android:android-24` |
 | Android 25 (7.1) | `FROM alvrme/alpine-android:android-25` |
 | Android 26 (8.0) | `FROM alvrme/alpine-android:android-26` |
-| Android 27 (8.1) | `FROM alvrme/alpine-android:latest`     |
+| Android 27 (8.1) | `FROM alvrme/alpine-android:android-27` |
+| Android 28 (9.0) | `FROM alvrme/alpine-android:android-28` |
