@@ -5,11 +5,11 @@ ENV SDK_TOOLS "4333796"
 ENV BUILD_TOOLS "26.0.3"
 ENV TARGET_SDK "26"
 ENV ANDROID_HOME "/opt/sdk"
-ENV GLIBC_VERSION "2.27-r0"
+ENV GLIBC_VERSION "2.28-r0"
 
 # Install required dependencies
 RUN apk add --no-cache --virtual=.build-dependencies wget unzip ca-certificates bash && \
-	wget https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub -O /etc/apk/keys/sgerrand.rsa.pub && \
+	wget https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -O /etc/apk/keys/sgerrand.rsa.pub && \
 	wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk -O /tmp/glibc.apk && \
 	wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk -O /tmp/glibc-bin.apk && \
 	apk add --no-cache /tmp/glibc.apk /tmp/glibc-bin.apk && \
