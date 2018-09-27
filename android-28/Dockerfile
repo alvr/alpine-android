@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
 ENV SDK_TOOLS "4333796"
-ENV BUILD_TOOLS "28.0.2"
+ENV BUILD_TOOLS "28.0.3"
 ENV TARGET_SDK "28"
 ENV ANDROID_HOME "/opt/sdk"
 ENV GLIBC_VERSION "2.28-r0"

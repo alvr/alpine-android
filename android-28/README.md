@@ -7,7 +7,7 @@
 ## Content
 Path                               | Version | Description                | Location
 -------                            | ------- | -------                    | -------
-build-tools;28.0.2                 | 28.0.2  | Android SDK Build-Tools 28 | build-tools/28.0.2/
+build-tools;28.0.3                 | 28.0.3  | Android SDK Build-Tools 28 | build-tools/28.0.3/
 emulator                           | 27.3.10 | Android Emulator           | emulator/
 extras;android;m2repository        | 47.0.0  | Android Support Repository | extras/android/m2repository/
 extras;google;google_play_services | 49      | Google Play services       | extras/google/google_play_services/
