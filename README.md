@@ -1,6 +1,6 @@
 # Alpine Android
 
-All images are based on openjdk:8-alpine (JDK 8.171.11-r0)
+All images are based on openjdk:8-alpine (JDK 8.181.13-r0)
 
 ---
 
