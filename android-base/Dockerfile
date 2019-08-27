@@ -12,7 +12,7 @@ RUN apk add --no-cache bash git unzip wget && \
     rm -rf /var/cache/apk/*
 
 # Download and extract Android Tools
-RUN wget -q http://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
+RUN wget -q https://dl.google.com/android/repository/sdk-tools-linux-${SDK_TOOLS}.zip -O /tmp/tools.zip && \
     mkdir -p ${ANDROID_HOME} && \
     unzip -qq /tmp/tools.zip -d ${ANDROID_HOME} && \
     rm -v /tmp/tools.zip
