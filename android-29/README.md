@@ -12,5 +12,5 @@
 | extras;google;m2repository  | 58      | Google Repository                   | extras/google/m2repository/  |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 29.0.2  | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-29        | 1       | Android SDK Platform 29             | platforms/android-29/        |
+| platforms;android-29        | 3       | Android SDK Platform 29             | platforms/android-29/        |
 | tools                       | 26.1.1  | Android SDK Tools                   | tools/                       |
