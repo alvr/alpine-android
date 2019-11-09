@@ -1,5 +1,5 @@
-FROM alvrme/alpine-android-base
-LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
+FROM tenrero/android-alpine-base
+LABEL maintainer="Marcos Tenrero"
 
 ENV BUILD_TOOLS "26.0.3"
 ENV TARGET_SDK "26"

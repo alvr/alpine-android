@@ -18,7 +18,7 @@
 In your Dockerfile use
 
 ```dockerfile
-FROM alvrme/alpine-android-base
+FROM tenrero/android-alpine-base
 ```
 
 this will install the packages above.
