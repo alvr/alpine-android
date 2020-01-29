@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:alpine-slim
+FROM adoptopenjdk/openjdk8:alpine
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
 ENV SDK_TOOLS "4333796"
