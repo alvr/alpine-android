@@ -1,7 +1,7 @@
 FROM alvrme/alpine-android-base
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
-ENV BUILD_TOOLS "29.0.2"
+ENV BUILD_TOOLS "29.0.3"
 ENV TARGET_SDK "29"
 
 # Install SDK Packages
