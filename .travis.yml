@@ -56,3 +56,7 @@ jobs:
         - docker push "${IMAGE_NAME}:android-29"
         - docker push "${IMAGE_NAME}:latest"
       name: "Android 29"
+    - script: 
+        - docker build -t "${IMAGE_NAME}:android-30" ./android-30 > /dev/null
+        - docker push "${IMAGE_NAME}:android-30"
+      name: "Android 30"

@@ -24,6 +24,7 @@ All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u242-b08)
 | Android 27 (8.1)  | `docker pull alvrme/alpine-android:android-27` | [Info][android27] |
 | Android 28 (9.0)  | `docker pull alvrme/alpine-android:android-28` | [Info][android28] |
 | Android 29 (10.0) | `docker pull alvrme/alpine-android:android-29` | [Info][android29] |
+| Android 30 (11.0) | `docker pull alvrme/alpine-android:android-30` | [Info][android30] |
 
 ## Use as Base Image
 
@@ -38,6 +39,7 @@ All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u242-b08)
 | Android 27 (8.1)  | `FROM alvrme/alpine-android:android-27` |
 | Android 28 (9.0)  | `FROM alvrme/alpine-android:android-28` |
 | Android 29 (10.0) | `FROM alvrme/alpine-android:android-29` |
+| Android 30 (11.0) | `FROM alvrme/alpine-android:android-30` |
 
 ## Run container
 
@@ -52,6 +54,7 @@ All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u242-b08)
 | Android 27 (8.1)  | `docker run --rm -it alvrme/alpine-android:android-27` |
 | Android 28 (9.0)  | `docker run --rm -it alvrme/alpine-android:android-28` |
 | Android 29 (10.0) | `docker run --rm -it alvrme/alpine-android:android-29` |
+| Android 30 (11.0) | `docker run --rm -it alvrme/alpine-android:android-30` |
 
 ## Extending from Alpine Android Base
 
@@ -77,3 +80,4 @@ The main difference between Alpine Android and Alpine Android Base is that the f
 [android27]: https://github.com/alvr/alpine-android/tree/master/android-27
 [android28]: https://github.com/alvr/alpine-android/tree/master/android-28
 [android29]: https://github.com/alvr/alpine-android/tree/master/android-29
+[android30]: https://github.com/alvr/alpine-android/tree/master/android-30
