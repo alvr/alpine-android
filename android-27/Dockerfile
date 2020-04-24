@@ -3,6 +3,7 @@ LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
 ENV BUILD_TOOLS "27.0.3"
 ENV TARGET_SDK "27"
+ENV PATH $PATH:${ANDROID_HOME}/build-tools/${BUILD_TOOLS}
 
 # Install SDK Packages
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}"
+RUN sdkmanager "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}"

@@ -5,7 +5,7 @@
 | [![docker-base-pulls]][docker-base] | [![docker-pulls]][docker] |
 | [![docker-base-stars]][docker-base] | [![docker-stars]][docker] |
 
-All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u242-b08)
+All images are based on adoptopenjdk/openjdk11:alpine (JDK 11.0.7+10)
 
 ---
 
