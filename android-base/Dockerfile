@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8:alpine
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
-ENV SDK_TOOLS "6200805"
+ENV SDK_TOOLS "6514223"
 ENV ANDROID_HOME "/opt/sdk"
 ENV PATH $PATH:${ANDROID_HOME}/cmdline-tools/tools/bin:${ANDROID_HOME}/platform-tools
 

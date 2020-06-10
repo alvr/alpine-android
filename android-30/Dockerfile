@@ -1,8 +1,8 @@
 FROM alvrme/alpine-android-base
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
-ENV BUILD_TOOLS "30.0.0-rc2"
-ENV TARGET_SDK "R"
+ENV BUILD_TOOLS "30.0.0"
+ENV TARGET_SDK "30"
 ENV PATH $PATH:${ANDROID_HOME}/build-tools/${BUILD_TOOLS}
 
 # Install SDK Packages
