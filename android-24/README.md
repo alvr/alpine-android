@@ -12,5 +12,5 @@
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | extras;google;m2repository  | 58      | Google Repository                   | extras/google/m2repository/  |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 30.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 30.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-24        | 2       | Android SDK Platform 24             | platforms/android-24/        |
