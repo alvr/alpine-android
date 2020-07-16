@@ -6,7 +6,7 @@
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
-| build-tools;30.0.0          | 30.0.0  | Android SDK Build-Tools             | build-tools/30.0.0/          |
+| build-tools;30.0.1          | 30.0.1  | Android SDK Build-Tools             | build-tools/30.0.1/          |
 | cmdline-tools;2.1           | 2.1     | Android SDK Command-line Tools      | cmdline-tools/tools/         |
 | extras;android;m2repository | 47.0.0  | Android Support Repository          | extras/android/m2repository/ |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
