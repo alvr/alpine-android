@@ -11,7 +11,7 @@
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | extras;google;m2repository  | 58      | Google Repository                   | extras/google/m2repository/  |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 30.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 30.0.4  | Android SDK Platform-Tools          | platform-tools/              |
 
 ## Extend from Alpine Android Base
 
@@ -29,7 +29,7 @@ You can install any Android package [available](https://gist.github.com/alvr/8db
 RUN sdkmanager <list-of-packages>
 ```
 
-If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.10). To install an Android package, include the following line on your Dockerfile:
+If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.12). To install an Android package, include the following line on your Dockerfile:
 
 ```dockerfile
 RUN apk add --no-cache <list-of-packages>
