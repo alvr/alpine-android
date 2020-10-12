@@ -52,11 +52,11 @@ jobs:
         - docker push "${IMAGE_NAME}:android-28"
       name: "Android 28"
     - script: 
-        - docker build -t "${IMAGE_NAME}:android-29" -t "${IMAGE_NAME}:latest" ./android-29 > /dev/null
+        - docker build -t "${IMAGE_NAME}:android-29" ./android-29 > /dev/null
         - docker push "${IMAGE_NAME}:android-29"
-        - docker push "${IMAGE_NAME}:latest"
       name: "Android 29"
     - script: 
-        - docker build -t "${IMAGE_NAME}:android-30" ./android-30 > /dev/null
+        - docker build -t "${IMAGE_NAME}:android-30" -t "${IMAGE_NAME}:latest" ./android-30 > /dev/null
         - docker push "${IMAGE_NAME}:android-30"
+        - docker push "${IMAGE_NAME}:latest"
       name: "Android 30"
