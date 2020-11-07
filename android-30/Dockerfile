@@ -6,4 +6,5 @@ ENV TARGET_SDK "30"
 ENV PATH $PATH:${ANDROID_HOME}/build-tools/${BUILD_TOOLS}
 
 # Install SDK Packages
-RUN sdkmanager "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}"
+RUN sdkmanager --install "build-tools;${BUILD_TOOLS}" "platforms;android-${TARGET_SDK}" && \
+    sdkmanager --uninstall emulator
