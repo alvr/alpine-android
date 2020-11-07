@@ -4,7 +4,7 @@ LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 ENV ANDROID_HOME "/opt/sdk"
 ENV CMDLINE_VERSION "3.0"
 ENV SDK_TOOLS "6858069"
-ENV PATH $PATH:${ANDROID_HOME}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_HOME}/platform-tools
+ENV PATH $PATH:${ANDROID_HOME}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/extras/google/instantapps
 
 # Install required dependencies
 RUN apk add --no-cache bash git unzip wget && \
@@ -22,6 +22,6 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SD
 # Install SDK Packages
 RUN mkdir -p ~/.android/ && touch ~/.android/repositories.cfg && \
     yes | sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
-    sdkmanager --sdk_root=${ANDROID_HOME} --install "platform-tools" "extras;android;m2repository" "extras;google;m2repository" "extras;google;instantapps"
+    sdkmanager --sdk_root=${ANDROID_HOME} --install "platform-tools" "extras;google;instantapps"
 
 WORKDIR /home/android
