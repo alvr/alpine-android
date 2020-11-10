@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+install_fastlane() {
+    VERSION=$2
+
+    apk add --no-cache g++ make ruby ruby-dev && \
+    rm -rf /tmp/* /var/tmp/*
+
+    if [ -z "$VERSION" ]; then 
+        echo "No version specified, using latest"
+        gem install fastlane -N
+    else
+        gem install fastlane -N -v $VERSION
+    fi    
+}
+
+case "$1" in
+    fastlane)
+        install_fastlane "$@"
+        ;;
+    *)
+        echo "Usage: $0 {fastlane}"
+esac

@@ -24,4 +24,6 @@ RUN mkdir -p ~/.android/ && touch ~/.android/repositories.cfg && \
     yes | sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
     sdkmanager --sdk_root=${ANDROID_HOME} --install "platform-tools" "extras;google;instantapps"
 
+COPY ./extras /bin
+
 WORKDIR /home/android
