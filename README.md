@@ -41,9 +41,9 @@ There are two variants of the image:
 
 ### Which one should I use?
 
-Is recommended to use the JDK8 version if you are not using AGP version 7.0.0+ or you are not using DataBinding, otherwise you must use JDK11 version because AGP will only work with version 11+ of the JDK.
+The recommended version is JDK8 if you are not using AGP v7.0.0+ or you are using DataBinding with a version of AGP prior to v7.0.0. Otherwise you must use JDK11 version because AGP v7.0.0+ will only work with version 11+ of the JDK.
 
-If you want to use a JDK11 image, remember that JAXB is not included and you must add the following dependencies if using DataBinding:
+If you want to use a JDK11 image with a version of AGP prior to v7, remember that JAXB is not included and you must add the following dependencies if using DataBinding:
 
 ```groovy
 // In Groovy
@@ -75,7 +75,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 Because of the [DockerHub rate limits](https://www.docker.com/increase-rate-limits), the image is now in three different containers registries:
 
 * DockerHub: [Base Image](https://hub.docker.com/repository/docker/alvrme/alpine-android-base/tags) and [Android Image](https://hub.docker.com/repository/docker/alvrme/alpine-android/tags).
-* GitHub Container Registry: [Base Image](https://github.com/alvr/alpine-android/packages/30028/versions) and [Android Image](https://github.com/alvr/alpine-android/packages/30035/versions).
+* GitHub Container Registry: [Base Image](https://github.com/users/alvr/packages/container/alpine-android-base/versions) and [Android Image](https://github.com/users/alvr/packages/container/alpine-android/versions).
 * Quay: [Base Image](https://quay.io/repository/alvr/alpine-android-base?tab=tags) and [Android Image](https://quay.io/repository/alvr/alpine-android?tab=tags).
 
 ### Pulling from the different registries
