@@ -1,6 +1,8 @@
 # Alpine Android Base
 
-[![Download Size](https://images.microbadger.com/badges/image/alvrme/alpine-android-base.svg)](https://microbadger.com/images/alvrme/alpine-android-base)
+![Docker Android Base JDK8 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android-base/jdk8?label=Docker%20JDK8%20Layers&style=for-the-badge) ![Docker Android Base JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
+
+![Docker Android Base JDK11 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android-base/jdk11?label=Docker%20JDK11%20Layers&style=for-the-badge) ![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
 ## Content
 
@@ -12,15 +14,7 @@
 
 ## Extend from Alpine Android Base
 
-In your Dockerfile use
-
-```dockerfile
-FROM alvrme/alpine-android-base
-```
-
-this will install the packages above.
-
-You can install any Android package [available](https://gist.github.com/alvr/8db356880447d2c4bbe948ea92d22c23). To install an Android package, include the following line on your Dockerfile:
+Use the [following configuration](https://github.com/alvr/alpine-android#use-as-base-image) in your Dockerfile. After that, you can install any Android package [available](https://gist.github.com/alvr/8db356880447d2c4bbe948ea92d22c23). To install an Android package, include the following line on your Dockerfile:
 
 ```dockerfile
 RUN sdkmanager <list-of-packages>

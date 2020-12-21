@@ -1,4 +1,4 @@
-FROM alvrme/alpine-android-base
+FROM alvrme/alpine-android-base:jdk11
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
 ENV BUILD_TOOLS "23.0.3"

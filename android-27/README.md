@@ -1,6 +1,8 @@
 # Alpine Android API 27
 
-[![Download Size](https://images.microbadger.com/badges/image/alvrme/alpine-android:android-27.svg)](https://microbadger.com/images/alvrme/alpine-android:android-27)
+![Docker Android 27 JDK8 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-27-jdk8?label=Docker%20JDK8%20Layers&style=for-the-badge) ![Docker Android 27 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-27-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
+
+![Docker Android 27 JDK11 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-27-jdk11?label=Docker%20JDK11%20Layers&style=for-the-badge) ![Docker Android 27 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-27-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
 ## Content
 

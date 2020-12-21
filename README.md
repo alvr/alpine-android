@@ -1,60 +1,226 @@
-# Alpine Android
+# Alpine Android Docker Images
 
-| Alpine Android Base                 | Alpine Android            |
-|-------------------------------------|---------------------------|
-| [![docker-base-pulls]][docker-base] | [![docker-pulls]][docker] |
-| [![docker-base-stars]][docker-base] | [![docker-stars]][docker] |
+<p align="center">
+  <a href="https://alvr.me/en/projects/docker/alpine-android/"><img alt="Alpine Android" src="https://alvr.me/images/showcase/alpine-android/docker-android.webp"/></a>
+</p>
 
-All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u272-b10)
+<p align="center">
+  <a href="https://github.com/alvr/alpine-android/actions?query=workflow%3A%22Docker+Images+Builder%22"><img alt="GitHub build status" src="https://img.shields.io/github/workflow/status/alvr/alpine-android/Docker%20Images%20Builder?style=for-the-badge"/></a>
+</p>
+
+<p align="center">
+  <img alt="Docker Alpine Android Base Stars" src="https://img.shields.io/docker/stars/alvrme/alpine-android-base?label=Docker%20Base%20Stars&style=for-the-badge"/>
+  <img alt="Docker Alpine Android Base Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android-base?label=Docker%20Base%20Pulls&style=for-the-badge"/>
+</p>
+
+<p align="center">
+  <img alt="Docker Alpine Android Stars" src="https://img.shields.io/docker/stars/alvrme/alpine-android?label=Docker%20Stars&style=for-the-badge"/>
+  <img alt="Docker Alpine Android Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android?label=Docker%20Pulls&style=for-the-badge"/>
+</p>
+
+<p align="center">
+  <a href="https://hub.docker.com/r/alvrme/alpine-android-base"><img alt="DockerHub Link" src="https://img.shields.io/badge/Base%20Image%20Link-DockerHub-%232496ED?style=for-the-badge"/></a>
+  <a href="https://github.com/users/alvr/packages/container/package/alpine-android-base"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/Base%20Image%20Link-GHCR-%23181717?style=for-the-badge"/></a>
+  <a href="https://quay.io/repository/alvr/alpine-android-base"><img alt="Quay Link" src="https://img.shields.io/badge/Base%20Image%20Link-Quay-%23D71E00?style=for-the-badge"/></a>
+</p>
+
+<p align="center">
+  <a href="https://hub.docker.com/r/alvrme/alpine-android"><img alt="DockerHub Link" src="https://img.shields.io/badge/Image%20Link-DockerHub-%232496ED?style=for-the-badge"/></a>
+  <a href="https://github.com/users/alvr/packages/container/package/alpine-android"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/Image%20Link-GHCR-%23181717?style=for-the-badge"/></a>
+  <a href="https://quay.io/repository/alvr/alpine-android"><img alt="Quay Link" src="https://img.shields.io/badge/Image%20Link-Quay-%23D71E00?style=for-the-badge"/></a>
+</p>
 
 ---
 
-> Is possible to use `latest` tag to always use the latest Android SDK version.
+## Variants
 
-## Pull from Docker Hub
+There are two variants of the image:
 
-| API level         | Command                                        | Info              |
-|-------------------|------------------------------------------------|-------------------|
-| Android 21 (5.0)  | `docker pull alvrme/alpine-android:android-21` | [Info][android21] |
-| Android 22 (5.1)  | `docker pull alvrme/alpine-android:android-22` | [Info][android22] |
-| Android 23 (6.0)  | `docker pull alvrme/alpine-android:android-23` | [Info][android23] |
-| Android 24 (7.0)  | `docker pull alvrme/alpine-android:android-24` | [Info][android24] |
-| Android 25 (7.1)  | `docker pull alvrme/alpine-android:android-25` | [Info][android25] |
-| Android 26 (8.0)  | `docker pull alvrme/alpine-android:android-26` | [Info][android26] |
-| Android 27 (8.1)  | `docker pull alvrme/alpine-android:android-27` | [Info][android27] |
-| Android 28 (9.0)  | `docker pull alvrme/alpine-android:android-28` | [Info][android28] |
-| Android 29 (10.0) | `docker pull alvrme/alpine-android:android-29` | [Info][android29] |
-| Android 30 (11.0) | `docker pull alvrme/alpine-android:android-30` | [Info][android30] |
+* JDK8 images are based on `adoptopenjdk/openjdk8:alpine` (JDK 8u275-b01) and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on `adoptopenjdk/openjdk11:alpine` (JDK 11.0.9.1+1) and uses the tag's suffix `-jdk11`.
 
-## Use as Base Image
+### Which one should I use?
 
-| API level         | Base Image                              |
-|-------------------|-----------------------------------------|
-| Android 21 (5.0)  | `FROM alvrme/alpine-android:android-21` |
-| Android 22 (5.1)  | `FROM alvrme/alpine-android:android-22` |
-| Android 23 (6.0)  | `FROM alvrme/alpine-android:android-23` |
-| Android 24 (7.0)  | `FROM alvrme/alpine-android:android-24` |
-| Android 25 (7.1)  | `FROM alvrme/alpine-android:android-25` |
-| Android 26 (8.0)  | `FROM alvrme/alpine-android:android-26` |
-| Android 27 (8.1)  | `FROM alvrme/alpine-android:android-27` |
-| Android 28 (9.0)  | `FROM alvrme/alpine-android:android-28` |
-| Android 29 (10.0) | `FROM alvrme/alpine-android:android-29` |
-| Android 30 (11.0) | `FROM alvrme/alpine-android:android-30` |
+Is recommended to use the JDK8 version if you are not using AGP version 7.0.0+ or you are not using DataBinding, otherwise you must use JDK11 version because AGP will only work with version 11+ of the JDK.
 
-## Run container
+If you want to use a JDK11 image, remember that JAXB is not included and you must add the following dependencies if using DataBinding:
 
-| API level         | Command                                                |
-|-------------------|--------------------------------------------------------|
-| Android 21 (5.0)  | `docker run --rm -it alvrme/alpine-android:android-21` |
-| Android 22 (5.1)  | `docker run --rm -it alvrme/alpine-android:android-22` |
-| Android 23 (6.0)  | `docker run --rm -it alvrme/alpine-android:android-23` |
-| Android 24 (7.0)  | `docker run --rm -it alvrme/alpine-android:android-24` |
-| Android 25 (7.1)  | `docker run --rm -it alvrme/alpine-android:android-25` |
-| Android 26 (8.0)  | `docker run --rm -it alvrme/alpine-android:android-26` |
-| Android 27 (8.1)  | `docker run --rm -it alvrme/alpine-android:android-27` |
-| Android 28 (9.0)  | `docker run --rm -it alvrme/alpine-android:android-28` |
-| Android 29 (10.0) | `docker run --rm -it alvrme/alpine-android:android-29` |
-| Android 30 (11.0) | `docker run --rm -it alvrme/alpine-android:android-30` |
+```groovy
+// In Groovy
+implementation "org.glassfish.jaxb:jaxb-runtime:2.3.3"
+// or in Kotlin DSL
+implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
+```
+
+## Tagging
+
+| API level        | JDK8                                                     | JDK11                              |
+|------------------|----------------------------------------------------------|------------------------------------|
+| Base Image       | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            |
+| Android 5.0 (21) | `android-21`, `android-21-jdk8`                          | `android-21-jdk11`                 |
+| Android 5.1 (22) | `android-22`, `android-22-jdk8`                          | `android-22-jdk11`                 |
+| Android 6.0 (23) | `android-23`, `android-23-jdk8`                          | `android-23-jdk11`                 |
+| Android 7.0 (24) | `android-24`, `android-24-jdk8`                          | `android-24-jdk11`                 |
+| Android 7.1 (25) | `android-25`, `android-25-jdk8`                          | `android-25-jdk11`                 |
+| Android 8.0 (26) | `android-26`, `android-26-jdk8`                          | `android-26-jdk11`                 |
+| Android 8.1 (27) | `android-27`, `android-27-jdk8`                          | `android-27-jdk11`                 |
+| Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 |
+| Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 |
+| Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
+
+> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD.
+
+## Containers registries
+
+Because of the [DockerHub rate limits](https://www.docker.com/increase-rate-limits), the image is now in three different containers registries:
+
+* DockerHub: [Base Image](https://hub.docker.com/repository/docker/alvrme/alpine-android-base/tags) and [Android Image](https://hub.docker.com/repository/docker/alvrme/alpine-android/tags).
+* GitHub Container Registry: [Base Image](https://github.com/alvr/alpine-android/packages/30028/versions) and [Android Image](https://github.com/alvr/alpine-android/packages/30035/versions).
+* Quay: [Base Image](https://quay.io/repository/alvr/alpine-android-base?tab=tags) and [Android Image](https://quay.io/repository/alvr/alpine-android?tab=tags).
+
+### Pulling from the different registries
+
+Replace `<tag>` with one of the current [available tags](#tagging).
+
+#### DockerHub pulling
+
+You can pull a specific Docker image from DockerHub with the following command:
+
+```bash
+docker pull alvrme/alpine-android-base:<tag>
+```
+
+```bash
+docker pull alvrme/alpine-android:<tag>
+```
+
+#### GHCR pulling
+
+You can pull a specific Docker image from GitHub Container Registry with the following command:
+
+```bash
+docker pull ghcr.io/alvr/alpine-android-base:<tag>
+```
+
+```bash
+docker pull ghcr.io/alvr/alpine-android:<tag>
+```
+
+#### Quay pulling
+
+You can pull a specific Docker image from Quay with the following command:
+
+```bash
+docker pull quay.io/alvr/alpine-android-base:<tag>
+```
+
+```bash
+docker pull quay.io/alvr/alpine-android:<tag>
+```
+
+### Use as Base Image
+
+Replace `<tag>` with one of the current [available tags](#tagging).
+
+#### DockerHub base image
+
+You can use the Docker images from DockerHub as a base image for creating a new one:
+
+```Dockerfile
+FROM alvrme/alpine-android-base:<tag>
+```
+
+```Dockerfile
+FROM alvrme/alpine-android:<tag>
+```
+
+#### GHCR base image
+
+You can use the Docker images from GitHub Container Registry as a base image for creating a new one:
+
+```Dockerfile
+FROM ghcr.io/alvr/alpine-android-base:<tag>
+```
+
+```Dockerfile
+FROM ghcr.io/alvr/alpine-android:<tag>
+```
+
+#### Quay base image
+
+You can use the Docker images from Quay as a base image for creating a new one:
+
+```Dockerfile
+FROM quay.io/alvr/alpine-android-base:<tag>
+```
+
+```Dockerfile
+FROM quay.io/alvr/alpine-android:<tag>
+```
+
+### Run container
+
+Replace `<tag>` with one of the current [available tags](#tagging).
+
+The command below will create a new container based on the specific image. It will open in the `/home/android` directory and the various [available commands](https://alvr.me/en/projects/docker/alpine-android/#tools-included) in the `PATH` will be able to be executed. Once the container is closed, it will be deleted. To keep the container after closing it, you have to remove `--rm` from the command.
+
+#### DockerHub run container
+
+Run the container from the DockerHub image:
+
+```bash
+docker run --rm -it alvrme/alpine-android-base:<tag>
+```
+
+```bash
+docker run --rm -it alvrme/alpine-android:<tag>
+```
+
+#### GHCR run container
+
+Run the container from the GitHub Container Registry image:
+
+```bash
+docker run --rm -it ghcr.io/alvr/alpine-android-base:<tag>
+```
+
+```bash
+docker run --rm -it ghcr.io/alvr/alpine-android:<tag>
+```
+
+#### Quay run container
+
+Run the container from the Quay image:
+
+```bash
+docker run --rm -it quay.io/alvr/alpine-android-base:<tag>
+```
+
+```bash
+docker run --rm -it quay.io/alvr/alpine-android:<tag>
+```
+
+## Extras
+
+The base image also includes the `extras` command that contains small utilities that are not installed by default, since their use is not widespread.
+
+These extras are executed with the command `extras <command>` and are the following
+
+### Fastlane
+
+[fastlane](https://github.com/fastlane/fastlane) is a tool for iOS and Android developers to automate tedious tasks like generating screenshots, dealing with provisioning profiles, and releasing your application. Visit their [documentation](https://docs.fastlane.tools/) for more information.
+
+This command allows you to install `fastlane`. There are two variants:
+
+```bash
+extras fastlane
+```
+
+This command allows you to install the latest version of `fastlane`. If you want to use a specific version, the command is as follows:
+
+```bash
+extras fastlane <version>
+```
 
 ## Extending from Alpine Android Base
 
@@ -63,21 +229,3 @@ All images are based on adoptopenjdk/openjdk8:alpine (JDK 8u272-b10)
 ## Difference between Alpine Android and Alpine Android Base
 
 The main difference between Alpine Android and Alpine Android Base is that the first one includes the corresponding `build-tools` and `platforms;android` versions. All Alpine Android versions share 95% of the code. Using a base image with the common part makes it easier to maintain.
-
-[docker-base]: https://hub.docker.com/r/alvrme/alpine-android-base/
-[docker]: https://hub.docker.com/r/alvrme/alpine-android/
-[docker-base-pulls]: https://img.shields.io/docker/pulls/alvrme/alpine-android-base.svg "Docker Pulls"
-[docker-pulls]: https://img.shields.io/docker/pulls/alvrme/alpine-android.svg "Docker Pulls"
-[docker-base-stars]: https://img.shields.io/docker/stars/alvrme/alpine-android-base.svg "Docker Stars"
-[docker-stars]: https://img.shields.io/docker/stars/alvrme/alpine-android.svg "Docker Stars"
-
-[android21]: https://github.com/alvr/alpine-android/tree/master/android-21
-[android22]: https://github.com/alvr/alpine-android/tree/master/android-22
-[android23]: https://github.com/alvr/alpine-android/tree/master/android-23
-[android24]: https://github.com/alvr/alpine-android/tree/master/android-24
-[android25]: https://github.com/alvr/alpine-android/tree/master/android-25
-[android26]: https://github.com/alvr/alpine-android/tree/master/android-26
-[android27]: https://github.com/alvr/alpine-android/tree/master/android-27
-[android28]: https://github.com/alvr/alpine-android/tree/master/android-28
-[android29]: https://github.com/alvr/alpine-android/tree/master/android-29
-[android30]: https://github.com/alvr/alpine-android/tree/master/android-30

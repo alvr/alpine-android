@@ -1,8 +1,8 @@
-FROM alvrme/alpine-android-base
+FROM alvrme/alpine-android-base:jdk8
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
-ENV BUILD_TOOLS "27.0.3"
-ENV TARGET_SDK "27"
+ENV BUILD_TOOLS "23.0.3"
+ENV TARGET_SDK "23"
 ENV PATH $PATH:${ANDROID_HOME}/build-tools/${BUILD_TOOLS}
 
 # Install SDK Packages
