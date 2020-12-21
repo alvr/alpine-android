@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-base
-          file: ./android-base/Dockerfile.jdk8
+          file: ./android-base/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_BASE_NAME }}:jdk8
@@ -100,7 +100,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-base
-          file: ./android-base/Dockerfile.jdk11
+          file: ./android-base/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_BASE_NAME }}:jdk11
@@ -146,7 +146,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-21
-          file: ./android-21/Dockerfile.jdk8
+          file: ./android-21/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-21
@@ -160,7 +160,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-22
-          file: ./android-22/Dockerfile.jdk8
+          file: ./android-22/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-22
@@ -174,7 +174,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-23
-          file: ./android-23/Dockerfile.jdk8
+          file: ./android-23/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-23
@@ -188,7 +188,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-24
-          file: ./android-24/Dockerfile.jdk8
+          file: ./android-24/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-24
@@ -202,7 +202,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-25
-          file: ./android-25/Dockerfile.jdk8
+          file: ./android-25/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-25
@@ -216,7 +216,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-26
-          file: ./android-26/Dockerfile.jdk8
+          file: ./android-26/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-26
@@ -230,7 +230,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-27
-          file: ./android-27/Dockerfile.jdk8
+          file: ./android-27/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-27
@@ -244,7 +244,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-28
-          file: ./android-28/Dockerfile.jdk8
+          file: ./android-28/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-28
@@ -258,7 +258,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-29
-          file: ./android-29/Dockerfile.jdk8
+          file: ./android-29/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-29
@@ -272,7 +272,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-30
-          file: ./android-30/Dockerfile.jdk8
+          file: ./android-30/jdk8.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-30
@@ -324,7 +324,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-21
-          file: ./android-21/Dockerfile.jdk11
+          file: ./android-21/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-21-jdk11
@@ -335,7 +335,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-22
-          file: ./android-22/Dockerfile.jdk11
+          file: ./android-22/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-22-jdk11
@@ -346,7 +346,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-23
-          file: ./android-23/Dockerfile.jdk11
+          file: ./android-23/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-23-jdk11
@@ -357,7 +357,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-24
-          file: ./android-24/Dockerfile.jdk11
+          file: ./android-24/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-24-jdk11
@@ -368,7 +368,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-25
-          file: ./android-25/Dockerfile.jdk11
+          file: ./android-25/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-25-jdk11
@@ -379,7 +379,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-26
-          file: ./android-26/Dockerfile.jdk11
+          file: ./android-26/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-26-jdk11
@@ -390,7 +390,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-27
-          file: ./android-27/Dockerfile.jdk11
+          file: ./android-27/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-27-jdk11
@@ -401,7 +401,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-28
-          file: ./android-28/Dockerfile.jdk11
+          file: ./android-28/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-28-jdk11
@@ -412,7 +412,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-29
-          file: ./android-29/Dockerfile.jdk11
+          file: ./android-29/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-29-jdk11
@@ -423,7 +423,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./android-30
-          file: ./android-30/Dockerfile.jdk11
+          file: ./android-30/jdk11.Dockerfile
           push: true
           tags: |
             ${{ env.DH_IMAGE_NAME }}:android-30-jdk11
