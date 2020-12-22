@@ -8,7 +8,7 @@
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
-| build-tools;30.0.2          | 30.0.2  | Android SDK Build-Tools             | build-tools/30.0.2/          |
+| build-tools;30.0.3          | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 30.0.5  | Android SDK Platform-Tools          | platform-tools/              |
