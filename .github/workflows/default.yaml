@@ -10,143 +10,38 @@ on:
 env:
   DH_IMAGE_BASE_NAME: alvrme/alpine-android-base
   DH_IMAGE_NAME: alvrme/alpine-android
+
   GHCR_IMAGE_BASE_NAME: alvr/alpine-android-base
   GHCR_IMAGE_NAME: alvr/alpine-android
+
   QUAY_IMAGE_BASE_NAME: alvr/alpine-android-base
   QUAY_IMAGE_NAME: alvr/alpine-android
+
   DOCKERHUB_USER: alvrme
   QUAY_USER: alvr
+
+  DEFAULT_JDK_VERSION: 8
   LATEST_STABLE_API: 30
 
 jobs:
-  build_base_image_jdk8:
-    name: Build Base Image JDK8
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ env.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PASS }}
-
-      - name: Login to Quay
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: ${{ env.QUAY_USER }}
-          password: ${{ secrets.QUAY_PASS }}
-
-      - name: Build Android Base Image JDK8
-        uses: docker/build-push-action@v2
-        with:
-          context: ./android-base
-          file: ./android-base/jdk8.Dockerfile
-          push: true
-          tags: |
-            ${{ env.DH_IMAGE_BASE_NAME }}:jdk8
-            ${{ env.DH_IMAGE_BASE_NAME }}:latest
-            ${{ env.DH_IMAGE_BASE_NAME }}:latest-jdk8
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}:jdk8
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}:latest
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}:latest-jdk8
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}:jdk8
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}:latest
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}:latest-jdk8
-
-  build_base_image_jdk11:
-    name: Build Base Image JDK11
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ env.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PASS }}
-
-      - name: Login to Quay
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: ${{ env.QUAY_USER }}
-          password: ${{ secrets.QUAY_PASS }}
-
-      - name: Build Android Base Image JDK11
-        uses: docker/build-push-action@v2
-        with:
-          context: ./android-base
-          file: ./android-base/jdk11.Dockerfile
-          push: true
-          tags: |
-            ${{ env.DH_IMAGE_BASE_NAME }}:jdk11
-            ${{ env.DH_IMAGE_BASE_NAME }}:latest-jdk11
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}:jdk11
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}:latest-jdk11
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}:jdk11
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}:latest-jdk11
-
-  build_images_jdk8:
-    name: Build Images JDK8
-    needs: [build_base_image_jdk8]
+  build_base_images:
+    name: Build Alpine Android Base Image
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        android-api:
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
+        jdk: [8, 11]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Get tag version
-        id: tag_version
-        uses: battila7/get-version-action@v2
-
       - name: Tags
         run: |
-          TAGS="android-${{ matrix.android-api }}"
-          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk8"
-          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk8-${{ steps.tag_version.outputs.version }}"
-          if [ "${{ matrix.android-api }}" = "${{ env.LATEST_STABLE_API }}" ]; then
+          TAGS="jdk${{ matrix.jdk }}"
+          TAGS="$TAGS,latest-jdk${{ matrix.jdk }}"
+          if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
             TAGS="$TAGS,latest"
-            TAGS="$TAGS,latest-jdk8"
           fi
           echo "TAGS=$TAGS" >> $GITHUB_ENV
 
@@ -155,9 +50,9 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v1
         with:
           images: |
-            ${{ env.DH_IMAGE_NAME }}
-            ghcr.io/${{ env.GHCR_IMAGE_NAME }}
-            quay.io/${{ env.QUAY_IMAGE_NAME }}
+            ${{ env.DH_IMAGE_BASE_NAME }}
+            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}
+            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}
           tag-custom: ${{ env.TAGS }}
           tag-custom-only: true
 
@@ -184,32 +79,25 @@ jobs:
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
-      - name: Build Android API ${{ matrix.android-api }} JDK8
+      - name: Build Android Base JDK${{ matrix.jdk }}
         uses: docker/build-push-action@v2
         with:
-          context: ./android-${{ matrix.android-api }}
-          file: ./android-${{ matrix.android-api }}/jdk8.Dockerfile
+          context: ./docker
+          file: ./docker/base.Dockerfile
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
+          build-args: |
+            JDK_VERSION=${{ matrix.jdk }}
 
-  build_images_jdk11:
-    name: Build Images JDK11
-    needs: [build_base_image_jdk11]
+  build_images:
+    name: Build Alpine Android Image
+    needs: [build_base_images]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        android-api:
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
+        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        jdk: [8, 11]
 
     steps:
       - name: Checkout
@@ -221,12 +109,44 @@ jobs:
 
       - name: Tags
         run: |
-          TAGS="android-${{ matrix.android-api }}-jdk11"
-          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk11-${{ steps.tag_version.outputs.version }}"
+          TAGS="android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}"
+          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}-${{ steps.tag_version.outputs.version }}"
+          if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
+            TAGS="$TAGS,android-${{ matrix.android-api }}"
+          fi
           if [ "${{ matrix.android-api }}" = "${{ env.LATEST_STABLE_API }}" ]; then
-            TAGS="$TAGS,latest-jdk11"
+            TAGS="$TAGS,latest-jdk${{ matrix.jdk }}"
+            if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
+              TAGS="$TAGS,latest"
+            fi
           fi
           echo "TAGS=$TAGS" >> $GITHUB_ENV
+
+      - name: Build Tools
+        id: build_tools
+        run: |
+          if [ "${{ matrix.android-api }}" = "21" ]; then
+            VERSION="21.1.2"
+          elif [ "${{ matrix.android-api }}" = "22" ]; then
+            VERSION="22.0.1"
+          elif [ "${{ matrix.android-api }}" = "23" ]; then
+            VERSION="23.0.3"
+          elif [ "${{ matrix.android-api }}" = "24" ]; then
+            VERSION="24.0.3"
+          elif [ "${{ matrix.android-api }}" = "25" ]; then
+            VERSION="25.0.3"
+          elif [ "${{ matrix.android-api }}" = "26" ]; then
+            VERSION="26.0.3"
+          elif [ "${{ matrix.android-api }}" = "27" ]; then
+            VERSION="27.0.3"
+          elif [ "${{ matrix.android-api }}" = "28" ]; then
+            VERSION="28.0.3"
+          elif [ "${{ matrix.android-api }}" = "29" ]; then
+            VERSION="29.0.3"
+          elif [ "${{ matrix.android-api }}" = "30" ]; then
+            VERSION="30.0.3"
+          fi
+          echo "::set-output name=version::$VERSION"
 
       - name: Docker meta
         id: docker_meta
@@ -262,10 +182,14 @@ jobs:
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
-      - name: Build Android API ${{ matrix.android-api }} JDK11
+      - name: Build Android API ${{ matrix.android-api }} JDK${{ matrix.jdk }}
         uses: docker/build-push-action@v2
         with:
-          context: ./android-${{ matrix.android-api }}
-          file: ./android-${{ matrix.android-api }}/jdk11.Dockerfile
+          context: ./docker
+          file: ./docker/android.Dockerfile
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
+          build-args: |
+            JDK_VERSION=${{ matrix.jdk }}
+            BUILD_TOOLS=${{ steps.build_tools.outputs.version }}
+            TARGET_SDK=${{ matrix.android-api }}

@@ -1,8 +1,11 @@
-FROM alvrme/alpine-android-base:jdk11
+ARG JDK_VERSION
+
+FROM alvrme/alpine-android-base:jdk${JDK_VERSION}
 LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
 
-ENV BUILD_TOOLS "29.0.3"
-ENV TARGET_SDK "29"
+ARG BUILD_TOOLS
+ARG TARGET_SDK
+
 ENV PATH $PATH:${ANDROID_SDK_ROOT}/build-tools/${BUILD_TOOLS}
 
 # Install SDK Packages
