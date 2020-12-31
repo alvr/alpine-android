@@ -2,8 +2,10 @@ name: Docker Images Builder
 
 on:
   push:
-    branches: [ master ]
-  workflow_dispatch:
+    branches:
+      - "!*"
+    tags:
+      - v*
 
 env:
   DH_IMAGE_BASE_NAME: alvrme/alpine-android-base
@@ -20,7 +22,6 @@ jobs:
   build_base_image_jdk8:
     name: Build Base Image JDK8
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     steps:
       - name: Checkout
@@ -69,7 +70,6 @@ jobs:
   build_base_image_jdk11:
     name: Build Base Image JDK11
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     steps:
       - name: Checkout
@@ -135,10 +135,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Get tag version
+        id: tag_version
+        uses: battila7/get-version-action@v2
+
       - name: Tags
         run: |
           TAGS="android-${{ matrix.android-api }}"
           TAGS="$TAGS,android-${{ matrix.android-api }}-jdk8"
+          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk8-${{ steps.tag_version.outputs.version }}"
           if [ "${{ matrix.android-api }}" = "${{ env.LATEST_STABLE_API }}" ]; then
             TAGS="$TAGS,latest"
             TAGS="$TAGS,latest-jdk8"
@@ -210,9 +215,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Get tag version
+        id: tag_version
+        uses: battila7/get-version-action@v2
+
       - name: Tags
         run: |
           TAGS="android-${{ matrix.android-api }}-jdk11"
+          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk11-${{ steps.tag_version.outputs.version }}"
           if [ "${{ matrix.android-api }}" = "${{ env.LATEST_STABLE_API }}" ]; then
             TAGS="$TAGS,latest-jdk11"
           fi

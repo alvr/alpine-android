@@ -68,7 +68,21 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 |
 | Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
 
-> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD.
+> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD. After that date, if you want to continue to use JDK8, you must update your configuration with the corresponding tag.
+
+### Versioning
+
+Since January 1st 2021, new versions now include the date it was published so is possible to revert to a previous version. The versioning only applies to tags with the JDK version specified. The tag's format is: `android-XX-jdkZZ-vYYYY.MM.DD`, where:
+
+* `XX` is the API level.
+* `ZZ` is the version of the JDK.
+* `YYYY` is the year of the release version.
+* `MM` is the month of the year of the release version with leading zeros.
+* `DD` is the day of the month of the release version with leading zeros.
+
+A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.com/alvr/alpine-android/releases) are listed all the versions.
+
+> :memo: The versioning is not available for `alpine-android-base`.
 
 ## Containers registries
 
