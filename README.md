@@ -1,7 +1,7 @@
 # Alpine Android Docker Images
 
 <p align="center">
-  <a href="https://alvr.me/en/projects/docker/alpine-android/"><img alt="Alpine Android" src="https://alvr.me/images/showcase/alpine-android/docker-android.webp"/></a>
+  <a href="https://alvr.dev/en/projects/docker/alpine-android/"><img alt="Alpine Android" src="https://alvr.dev/images/showcase/alpine-android/docker-android.webp"/></a>
 </p>
 
 <p align="center">
@@ -367,7 +367,7 @@ FROM quay.io/alvr/alpine-android:<tag>
 
 Replace `<tag>` with one of the current [available tags](#tagging).
 
-The command below will create a new container based on the specific image. It will open in the `/home/android` directory and the various [available commands](https://alvr.me/en/projects/docker/alpine-android/#tools-included) in the `PATH` will be able to be executed. Once the container is closed, it will be deleted. To keep the container after closing it, you have to remove `--rm` from the command.
+The command below will create a new container based on the specific image. It will open in the `/home/android` directory and the various [available commands](https://alvr.dev/en/projects/docker/alpine-android/#tools-included) in the `PATH` will be able to be executed. Once the container is closed, it will be deleted. To keep the container after closing it, you have to remove `--rm` from the command.
 
 #### DockerHub run container
 
@@ -429,7 +429,7 @@ extras fastlane <version>
 
 ## Extending from Alpine Android Base
 
-[Read more here](https://github.com/alvr/alpine-android/tree/master/android-base)
+[Read more here](https://alvr.dev/en/projects/docker/alpine-android/#alpine-android-base)
 
 ## Difference between Alpine Android and Alpine Android Base
 
