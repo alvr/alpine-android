@@ -36,8 +36,8 @@
 
 There are two variants of the image:
 
-* JDK8 images are based on `adoptopenjdk/openjdk8:alpine` (JDK 8u275-b01) and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on `adoptopenjdk/openjdk11:alpine` (JDK 11.0.9.1+1) and uses the tag's suffix `-jdk11`.
+* JDK8 images are based on `adoptopenjdk/openjdk8:alpine` (JDK 8u282-b08) and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on `adoptopenjdk/openjdk11:alpine` (JDK 11.0.10+9) and uses the tag's suffix `-jdk11`.
 
 ### Which one should I use?
 

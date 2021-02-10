@@ -1,7 +1,7 @@
 ARG JDK_VERSION
 
 FROM alvrme/alpine-android-base:jdk${JDK_VERSION}
-LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
+LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ARG BUILD_TOOLS
 ARG TARGET_SDK

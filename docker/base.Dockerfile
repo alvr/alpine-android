@@ -1,7 +1,7 @@
 ARG JDK_VERSION
 
 FROM adoptopenjdk/openjdk${JDK_VERSION}:alpine
-LABEL maintainer="Álvaro S. <alvaro@alvr.me>"
+LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ENV ANDROID_SDK_ROOT "/opt/sdk"
 ENV ANDROID_HOME ${ANDROID_SDK_ROOT}
