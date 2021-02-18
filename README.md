@@ -67,9 +67,11 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 |
 | Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 |
 | Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
-| Android 12 (31)  | `android-S`, `android-S-jdk8`                            | `android-S-jdk11`                 |
+| Android 12 (31)  | `android-S`, `android-S-jdk8`                            | `android-S-jdk11`                  |
 
 > :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD. After that date, if you want to continue to use JDK8, you must update your configuration with the corresponding tag.
+
+> :warning: Android 12 is in a preview state. Preview versions are tagged differently using the letter of the version instead the API level.
 
 ### Versioning
 
@@ -452,4 +454,11 @@ extras fastlane <version>
 
 The main difference between Alpine Android and Alpine Android Base is that the first one includes the corresponding `build-tools` and `platforms;android` versions. All Alpine Android versions share 95% of the code. Using a base image with the common part makes it easier to maintain.
 
-<!-- markdownlint-configure-file { "MD033": { "allowed_elements": ["a", "details", "img", "p", "summary"] } } -->
+<!--
+markdownlint-configure-file {
+  "MD028": false,
+  "MD033": {
+    "allowed_elements": ["a", "details", "img", "p", "summary"]
+    }
+  }
+-->
