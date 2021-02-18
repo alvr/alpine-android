@@ -96,7 +96,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, S]
         jdk: [8, 11]
 
     steps:
@@ -145,6 +145,8 @@ jobs:
             VERSION="29.0.3"
           elif [ "${{ matrix.android-api }}" = "30" ]; then
             VERSION="30.0.3"
+          elif [ "${{ matrix.android-api }}" = "S" ]; then
+            VERSION="31.0.0-rc1"
           fi
           echo "::set-output name=version::$VERSION"
 
