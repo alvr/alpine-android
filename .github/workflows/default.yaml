@@ -37,7 +37,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Tags
+        shell: sh
         run: |
+          set -eu
+
           TAGS="jdk${{ matrix.jdk }}"
           TAGS="$TAGS,latest-jdk${{ matrix.jdk }}"
           if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
@@ -86,8 +89,16 @@ jobs:
           file: ./docker/base.Dockerfile
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
+
+      - name: Update repo description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ env.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+          repository: ${{ env.DH_IMAGE_BASE_NAME }}
 
   build_images:
     name: Build Alpine Android Image
@@ -107,8 +118,11 @@ jobs:
         id: tag_version
         uses: battila7/get-version-action@v2
 
-      - name: Tags
+      - name: Set environment variables
+        shell: sh
         run: |
+          set -eu
+
           TAGS="android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}"
           TAGS="$TAGS,android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}-${{ steps.tag_version.outputs.version }}"
           if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
@@ -122,33 +136,20 @@ jobs:
           fi
           echo "TAGS=$TAGS" >> $GITHUB_ENV
 
-      - name: Build Tools
-        id: build_tools
-        run: |
-          if [ "${{ matrix.android-api }}" = "21" ]; then
-            VERSION="21.1.2"
-          elif [ "${{ matrix.android-api }}" = "22" ]; then
-            VERSION="22.0.1"
-          elif [ "${{ matrix.android-api }}" = "23" ]; then
-            VERSION="23.0.3"
-          elif [ "${{ matrix.android-api }}" = "24" ]; then
-            VERSION="24.0.3"
-          elif [ "${{ matrix.android-api }}" = "25" ]; then
-            VERSION="25.0.3"
-          elif [ "${{ matrix.android-api }}" = "26" ]; then
-            VERSION="26.0.3"
-          elif [ "${{ matrix.android-api }}" = "27" ]; then
-            VERSION="27.0.3"
-          elif [ "${{ matrix.android-api }}" = "28" ]; then
-            VERSION="28.0.3"
-          elif [ "${{ matrix.android-api }}" = "29" ]; then
-            VERSION="29.0.3"
-          elif [ "${{ matrix.android-api }}" = "30" ]; then
-            VERSION="30.0.3"
-          elif [ "${{ matrix.android-api }}" = "S" ]; then
-            VERSION="31.0.0-rc1"
-          fi
-          echo "::set-output name=version::$VERSION"
+          case ${{ matrix.android-api }} in
+              21) BUILD_TOOLS_VERSION="21.1.2" ;;
+              22) BUILD_TOOLS_VERSION="22.0.1" ;;
+              23) BUILD_TOOLS_VERSION="23.0.3" ;;
+              24) BUILD_TOOLS_VERSION="24.0.3" ;;
+              25) BUILD_TOOLS_VERSION="25.0.3" ;;
+              26) BUILD_TOOLS_VERSION="26.0.3" ;;
+              27) BUILD_TOOLS_VERSION="27.0.3" ;;
+              28) BUILD_TOOLS_VERSION="28.0.3" ;;
+              29) BUILD_TOOLS_VERSION="29.0.3" ;;
+              30) BUILD_TOOLS_VERSION="30.0.3" ;;
+              S)  BUILD_TOOLS_VERSION="31.0.0-rc1" ;;
+          esac
+          echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
       - name: Docker meta
         id: docker_meta
@@ -191,7 +192,15 @@ jobs:
           file: ./docker/android.Dockerfile
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
-            BUILD_TOOLS=${{ steps.build_tools.outputs.version }}
+            BUILD_TOOLS=${{ env.BUILD_TOOLS_VERSION }}
             TARGET_SDK=${{ matrix.android-api }}
+
+      - name: Update repo description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ env.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+          repository: ${{ env.DH_IMAGE_NAME }}
