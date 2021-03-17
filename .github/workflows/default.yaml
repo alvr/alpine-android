@@ -93,13 +93,6 @@ jobs:
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
 
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ env.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-          repository: ${{ env.DH_IMAGE_BASE_NAME }}
-
   build_images:
     name: Build Alpine Android Image
     needs: [build_base_images]
@@ -147,7 +140,7 @@ jobs:
               28) BUILD_TOOLS_VERSION="28.0.3" ;;
               29) BUILD_TOOLS_VERSION="29.0.3" ;;
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
-              S)  BUILD_TOOLS_VERSION="31.0.0-rc1" ;;
+              S)  BUILD_TOOLS_VERSION="31.0.0-rc2" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
@@ -197,10 +190,3 @@ jobs:
             JDK_VERSION=${{ matrix.jdk }}
             BUILD_TOOLS=${{ env.BUILD_TOOLS_VERSION }}
             TARGET_SDK=${{ matrix.android-api }}
-
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ env.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PASS }}
-          repository: ${{ env.DH_IMAGE_NAME }}
