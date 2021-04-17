@@ -100,7 +100,7 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 
 ## Extend from Alpine Android Base
 
@@ -130,7 +130,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;21.1.2          | 21.1.2  | Android SDK Build-Tools             | build-tools/21.1.2/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-21        | 2       | Android SDK Platform 21             | platforms/android-21/        |
 </details>
 
@@ -146,7 +146,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;22.0.1          | 22.0.1  | Android SDK Build-Tools             | build-tools/22.0.1/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-22        | 2       | Android SDK Platform 22             | platforms/android-22/        |
 </details>
 
@@ -162,7 +162,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;23.0.3          | 23.0.3  | Android SDK Build-Tools             | build-tools/23.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-23        | 3       | Android SDK Platform 23             | platforms/android-23/        |
 </details>
 
@@ -178,7 +178,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;24.0.3          | 24.0.3  | Android SDK Build-Tools             | build-tools/24.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-24        | 2       | Android SDK Platform 24             | platforms/android-24/        |
 </details>
 
@@ -194,7 +194,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;25.0.3          | 25.0.3  | Android SDK Build-Tools             | build-tools/25.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-25        | 3       | Android SDK Platform 25             | platforms/android-25/        |
 </details>
 
@@ -210,7 +210,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;26.0.3          | 26.0.3  | Android SDK Build-Tools             | build-tools/26.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-26        | 2       | Android SDK Platform 26             | platforms/android-26/        |
 </details>
 
@@ -226,7 +226,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;27.0.3          | 27.0.3  | Android SDK Build-Tools             | build-tools/27.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-27        | 3       | Android SDK Platform 27             | platforms/android-27/        |
 </details>
 
@@ -242,7 +242,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;28.0.3          | 28.0.3  | Android SDK Build-Tools             | build-tools/28.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-28        | 6       | Android SDK Platform 28             | platforms/android-28/        |
 </details>
 
@@ -258,7 +258,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;29.0.3          | 29.0.3  | Android SDK Build-Tools             | build-tools/29.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-29        | 5       | Android SDK Platform 29             | platforms/android-29/        |
 </details>
 
@@ -274,7 +274,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;30.0.3          | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-30        | 3       | Android SDK Platform 30             | platforms/android-30/        |
 </details>
 
@@ -290,7 +290,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;31.0.0-rc1      | 31.0.0-rc2 | Android SDK Build-Tools             | build-tools/31.0.0-rc1/      |
 | extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.1     | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.2     | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-S         | 2          | Android SDK Platform S (Preview)    | platforms/android-S/         |
 </details>
 
