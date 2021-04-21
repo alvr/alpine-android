@@ -140,7 +140,7 @@ jobs:
               28) BUILD_TOOLS_VERSION="28.0.3" ;;
               29) BUILD_TOOLS_VERSION="29.0.3" ;;
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
-              S)  BUILD_TOOLS_VERSION="31.0.0-rc2" ;;
+              S)  BUILD_TOOLS_VERSION="31.0.0-rc3" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 

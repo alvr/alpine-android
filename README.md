@@ -287,11 +287,11 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                        | Version    | Description                         | Location                     |
 |-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;31.0.0-rc1      | 31.0.0-rc2 | Android SDK Build-Tools             | build-tools/31.0.0-rc1/      |
+| build-tools;31.0.0-rc1      | 31.0.0-rc3 | Android SDK Build-Tools             | build-tools/31.0.0-rc3/      |
 | extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 31.0.2     | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-S         | 2          | Android SDK Platform S (Preview)    | platforms/android-S/         |
+| platforms;android-S         | 3          | Android SDK Platform S (Preview)    | platforms/android-S/         |
 </details>
 
 ## Containers registries
