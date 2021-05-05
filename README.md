@@ -36,8 +36,8 @@
 
 There are two variants of the image:
 
-* JDK8 images are based on `adoptopenjdk/openjdk8:alpine` (JDK 8u282-b08) and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on `adoptopenjdk/openjdk11:alpine` (JDK 11.0.10+9) and uses the tag's suffix `-jdk11`.
+* JDK8 images are based on `adoptopenjdk/openjdk8:alpine` (JDK 8u292-b10) and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on `adoptopenjdk/openjdk11:alpine` (JDK 11.0.11+9) and uses the tag's suffix `-jdk11`.
 
 ### Which one should I use?
 
@@ -71,7 +71,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 
 > :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD. After that date, if you want to continue to use JDK8, you must update your configuration with the corresponding tag.
 
-> :warning: Android 12 is in a preview state. Preview versions are tagged differently using the letter of the version instead the API level.
+> :warning: Android 12 is in a preview state. Preview versions are tagged differently using the letter of the version instead the API level. Android 12 will be using `latest` tag one month and a half after the stable release (TBD).
 
 ### Versioning
 
