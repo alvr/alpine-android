@@ -110,7 +110,7 @@ Use the [following configuration](https://github.com/alvr/alpine-android#use-as-
 RUN sdkmanager <list-of-packages>
 ```
 
-If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.12). To install an Android package, include the following line on your Dockerfile:
+If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.13). To install an Android package, include the following line on your Dockerfile:
 
 ```dockerfile
 RUN apk add --no-cache <list-of-packages>
@@ -287,7 +287,7 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                        | Version    | Description                         | Location                     |
 |-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;31.0.0-rc1      | 31.0.0-rc4 | Android SDK Build-Tools             | build-tools/31.0.0-rc4/      |
+| build-tools;31.0.0-rc5      | 31.0.0-rc5 | Android SDK Build-Tools             | build-tools/31.0.0-rc5/      |
 | extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 31.0.2     | Android SDK Platform-Tools          | platform-tools/              |
