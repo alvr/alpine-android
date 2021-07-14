@@ -67,11 +67,11 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 |
 | Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 |
 | Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
-| Android 12 (31)  | `android-S`, `android-S-jdk8`                            | `android-S-jdk11`                  |
+| Android 12 (31)  | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 |
 
 > :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD. After that date, if you want to continue to use JDK8, you must update your configuration with the corresponding tag.
 
-> :warning: Android 12 is in a preview state. Preview versions are tagged differently using the letter of the version instead the API level. Android 12 will be using `latest` tag one month and a half after the stable release (TBD).
+> :warning: Android 12 is in beta state. Android 12 will be using `latest` tag one month and a half after the stable release (TBD).
 
 ### Versioning
 
@@ -279,19 +279,19 @@ RUN apk add --no-cache <list-of-packages>
 </details>
 
 <details>
-  <summary>See content of Android 31 image (Preview)</summary>
+  <summary>See content of Android 31 image</summary>
 
-![Docker Android S JDK8 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-S-jdk8?label=Docker%20JDK8%20Layers&style=for-the-badge) ![Docker Android S JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-S-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
+![Docker Android 31 JDK8 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-31-jdk8?label=Docker%20JDK8%20Layers&style=for-the-badge) ![Docker Android 31 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
 
-![Docker Android S JDK11 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-S-jdk11?label=Docker%20JDK11%20Layers&style=for-the-badge) ![Docker Android S JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-S-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
+![Docker Android 31 JDK11 Layers](https://img.shields.io/microbadger/layers/alvrme/alpine-android/android-31-jdk11?label=Docker%20JDK11%20Layers&style=for-the-badge) ![Docker Android 31 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
-| Path                        | Version    | Description                         | Location                     |
-|-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;31.0.0-rc5      | 31.0.0-rc5 | Android SDK Build-Tools             | build-tools/31.0.0-rc5/      |
-| extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
-| patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2     | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-S         | 4          | Android SDK Platform S (Preview)    | platforms/android-S/         |
+| Path                        | Version | Description                         | Location                     |
+|-----------------------------|---------|-------------------------------------|------------------------------|
+| build-tools;31.0.0          | 31.0.0  | Android SDK Build-Tools             | build-tools/31.0.0/          |
+| extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
+| patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
+| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platforms;android-31        | 1       | Android SDK Platform 31             | platforms/android-31/        |
 </details>
 
 ## Containers registries
