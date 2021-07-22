@@ -1,6 +1,6 @@
 ARG JDK_VERSION
 
-FROM adoptopenjdk/openjdk${JDK_VERSION}:alpine
+FROM bellsoft/liberica-openjdk-alpine:${JDK_VERSION}
 LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ENV ANDROID_SDK_ROOT "/opt/sdk"

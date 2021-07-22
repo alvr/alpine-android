@@ -1,24 +1,12 @@
 name: Docker Images Builder
 
-on:
-  push:
-    branches:
-      - "!*"
-    tags:
-      - v*
+on: push
 
 env:
-  DH_IMAGE_BASE_NAME: alvrme/alpine-android-base
-  DH_IMAGE_NAME: alvrme/alpine-android
-
-  GHCR_IMAGE_BASE_NAME: alvr/alpine-android-base
-  GHCR_IMAGE_NAME: alvr/alpine-android
-
-  QUAY_IMAGE_BASE_NAME: alvr/alpine-android-base
-  QUAY_IMAGE_NAME: alvr/alpine-android
+  DH_IMAGE_BASE_NAME: alvrme/alpine-android-base-liberica
+  DH_IMAGE_NAME: alvrme/alpine-android-liberica
 
   DOCKERHUB_USER: alvrme
-  QUAY_USER: alvr
 
   DEFAULT_JDK_VERSION: 8
   LATEST_STABLE_API: 30
@@ -54,10 +42,11 @@ jobs:
         with:
           images: |
             ${{ env.DH_IMAGE_BASE_NAME }}
-            ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}
-            quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}
           tag-custom: ${{ env.TAGS }}
           tag-custom-only: true
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -67,20 +56,6 @@ jobs:
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PASS }}
-
-      - name: Login to Quay
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: ${{ env.QUAY_USER }}
-          password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android Base JDK${{ matrix.jdk }}
         uses: docker/build-push-action@v2
@@ -92,6 +67,9 @@ jobs:
           labels: ${{ steps.docker_meta.outputs.labels }}
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
+          platforms: |
+            linux/amd64
+            linux/arm64
 
   build_images:
     name: Build Alpine Android Image
@@ -150,10 +128,11 @@ jobs:
         with:
           images: |
             ${{ env.DH_IMAGE_NAME }}
-            ghcr.io/${{ env.GHCR_IMAGE_NAME }}
-            quay.io/${{ env.QUAY_IMAGE_NAME }}
           tag-custom: ${{ env.TAGS }}
           tag-custom-only: true
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -163,20 +142,6 @@ jobs:
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PASS }}
-
-      - name: Login to Quay
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: ${{ env.QUAY_USER }}
-          password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android API ${{ matrix.android-api }} JDK${{ matrix.jdk }}
         uses: docker/build-push-action@v2
@@ -190,3 +155,6 @@ jobs:
             JDK_VERSION=${{ matrix.jdk }}
             BUILD_TOOLS=${{ env.BUILD_TOOLS_VERSION }}
             TARGET_SDK=${{ matrix.android-api }}
+          platforms: |
+            linux/amd64
+            linux/arm64
