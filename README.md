@@ -69,7 +69,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
 | Android 12 (31)  | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 |
 
-> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image for one year after AGP 7.0.0 is released to avoid problems with currents CI/CD configurations. That date is yet TBD. After that date, if you want to continue to use JDK8, you must update your configuration with the corresponding tag.
+> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that, those tags will be using JDK11.
 
 > :warning: Android 12 is in beta state. Android 12 will be using `latest` tag one month and a half after the stable release (TBD).
 
