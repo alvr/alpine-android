@@ -9,8 +9,7 @@ ENV CMDLINE_VERSION "5.0"
 ENV SDK_TOOLS "7583922"
 ENV PATH $PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
-RUN apk add --no-cache bash git unzip wget && \
-    apk add --virtual .rundeps $runDeps && \
+RUN apk add --no-cache bash curl git unzip wget && \
     rm -rf /tmp/* && \
     rm -rf /var/cache/apk/* && \
     wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS}_latest.zip -O /tmp/tools.zip && \
@@ -25,3 +24,5 @@ RUN apk add --no-cache bash git unzip wget && \
 COPY ./extras /bin
 
 WORKDIR /home/android
+
+CMD ["/bin/bash"]

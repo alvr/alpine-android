@@ -446,6 +446,24 @@ This command allows you to install the latest version of `fastlane`. If you want
 extras fastlane <version>
 ```
 
+### NDK
+
+The [Android NDK](https://developer.android.com/ndk) is a toolset that lets you implement parts of your app in native code, using languages such as C and C++. For certain types of apps, this can help you reuse code libraries written in those languages.
+
+This command allows you to install NDK and CMAKE using the latest versions available (NDK: `23.0.7599858`; CMAKE: `3.18.1`):
+
+```bash
+extras ndk
+```
+
+Is also possible to specify the version of NDK and CMAKE with:
+
+```bash
+extras ndk [--ndk | -n <version>] [--cmake | -c <version>]
+```
+
+It is not necessary to enter both versions, is possible to omit one.
+
 ## Extending from Alpine Android Base
 
 [Read more here](https://alvr.dev/en/projects/docker/alpine-android/#alpine-android-base)

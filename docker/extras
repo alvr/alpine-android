@@ -1,25 +1,87 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
+DEFAULT_NDK=23.0.7599858
+DEFAULT_CMAKE=3.18.1
+
 install_fastlane() {
-    VERSION=$2
+	VERSION=$2
 
-    apk add --no-cache g++ make ruby ruby-dev && \
-    rm -rf /tmp/* /var/tmp/*
+	apk add --no-cache g++ make ruby ruby-dev &&
+		rm -rf /tmp/* /var/tmp/*
 
-    if [ -z "$VERSION" ]; then 
-        echo "No version specified, using latest"
-        gem install fastlane -N
-    else
-        gem install fastlane -N -v $VERSION
-    fi    
+	if [ -z "$VERSION" ]; then
+		echo "No version specified for fastlane, installing latest"
+		gem install fastlane -N
+	else
+		echo "Installing fastlane $VERSION"
+		gem install fastlane -N -v "$VERSION"
+	fi
+}
+
+install_ndk() {
+	NDK_VERSION=
+	CMAKE_VERSION=
+	POSITIONAL=()
+
+	while [[ $# -gt 0 ]]; do
+		key="$1"
+
+		case $key in
+		-n | --ndk)
+			NDK_VERSION="$2"
+			shift
+			shift
+			;;
+		-c | --cmake)
+			CMAKE_VERSION="$2"
+			shift
+			shift
+			;;
+		*)
+			POSITIONAL+=("$1")
+			shift
+			;;
+		esac
+	done
+
+	set -- "${POSITIONAL[@]}"
+
+	if [ -z "$NDK_VERSION" ]; then
+		echo "No version specified for NDK, installing $DEFAULT_NDK"
+		sdkmanager --install "ndk;$DEFAULT_NDK"
+	else
+		echo "Installing NDK $NDK_VERSION"
+		sdkmanager --install "ndk;$NDK_VERSION"
+	fi
+
+	if [ -z "$CMAKE_VERSION" ]; then
+		echo "No version specified for CMAKE, installing $DEFAULT_CMAKE"
+		sdkmanager --install "cmake;$DEFAULT_CMAKE"
+	else
+		echo "Installing CMAKE $CMAKE_VERSION"
+		sdkmanager --install "cmake;$CMAKE_VERSION"
+	fi
+}
+
+usage() {
+	echo
+	echo "Usage: $0 <command>"
+	echo
+	echo "Commands:"
+	echo "    fastlane [VERSION]                                           Install Fastlane gem. Default Fastlane: latest"
+	echo "    ndk [--ndk | -n NDK_VERSION] [--cmake | -c CMAKE_VERSION]    Install NDK. Default NDK: $DEFAULT_NDK; Default CMAKE: $DEFAULT_CMAKE"
 }
 
 case "$1" in
-    fastlane)
-        install_fastlane "$@"
-        ;;
-    *)
-        echo "Usage: $0 {fastlane}"
+fastlane)
+	install_fastlane "$@"
+	;;
+ndk)
+	install_ndk "$@"
+	;;
+*)
+	usage
+	;;
 esac
