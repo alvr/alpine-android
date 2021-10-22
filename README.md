@@ -54,24 +54,24 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 
 ## Tagging
 
-| API level        | JDK8                                                     | JDK11                              |
-|------------------|----------------------------------------------------------|------------------------------------|
-| Base Image       | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            |
-| Android 5.0 (21) | `android-21`, `android-21-jdk8`                          | `android-21-jdk11`                 |
-| Android 5.1 (22) | `android-22`, `android-22-jdk8`                          | `android-22-jdk11`                 |
-| Android 6.0 (23) | `android-23`, `android-23-jdk8`                          | `android-23-jdk11`                 |
-| Android 7.0 (24) | `android-24`, `android-24-jdk8`                          | `android-24-jdk11`                 |
-| Android 7.1 (25) | `android-25`, `android-25-jdk8`                          | `android-25-jdk11`                 |
-| Android 8.0 (26) | `android-26`, `android-26-jdk8`                          | `android-26-jdk11`                 |
-| Android 8.1 (27) | `android-27`, `android-27-jdk8`                          | `android-27-jdk11`                 |
-| Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 |
-| Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 |
-| Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` |
-| Android 12 (31)  | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 |
+| API level        | JDK8                                                     | JDK11                              | JDK17                              |
+|------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
+| Base Image       | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
+| Android 5.0 (21) | `android-21`, `android-21-jdk8`                          | `android-21-jdk11`                 | `android-21-jdk17`                 |
+| Android 5.1 (22) | `android-22`, `android-22-jdk8`                          | `android-22-jdk11`                 | `android-22-jdk17`                 |
+| Android 6.0 (23) | `android-23`, `android-23-jdk8`                          | `android-23-jdk11`                 | `android-23-jdk17`                 |
+| Android 7.0 (24) | `android-24`, `android-24-jdk8`                          | `android-24-jdk11`                 | `android-24-jdk17`                 |
+| Android 7.1 (25) | `android-25`, `android-25-jdk8`                          | `android-25-jdk11`                 | `android-25-jdk17`                 |
+| Android 8.0 (26) | `android-26`, `android-26-jdk8`                          | `android-26-jdk11`                 | `android-26-jdk17`                 |
+| Android 8.1 (27) | `android-27`, `android-27-jdk8`                          | `android-27-jdk11`                 | `android-27-jdk17`                 |
+| Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
+| Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
+| Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
+| Android 12 (31)  | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
 
 > :memo: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that, those tags will be using JDK11.
 
-> :warning: Android 12 is in beta state. Android 12 will be using `latest` tag one month and a half after the stable release (TBD).
+> :warning: Android 12 is available. Android 12 will be using `latest` tag on January 1st, 2022.
 
 ### Versioning
 
@@ -96,11 +96,13 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 
 ![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android Base JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 
 ## Extend from Alpine Android Base
 
@@ -124,13 +126,15 @@ RUN apk add --no-cache <list-of-packages>
 ![Docker Android 21 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-21-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
 
 ![Docker Android 21 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-21-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
+
+![Docker Android 21 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-21-jdk17?label=Docker%20JDK11%20Size&style=for-the-badge)
   
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;21.1.2          | 21.1.2  | Android SDK Build-Tools             | build-tools/21.1.2/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-21        | 2       | Android SDK Platform 21             | platforms/android-21/        |
 </details>
 
@@ -141,12 +145,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 22 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-22-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 22 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-22-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;22.0.1          | 22.0.1  | Android SDK Build-Tools             | build-tools/22.0.1/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-22        | 2       | Android SDK Platform 22             | platforms/android-22/        |
 </details>
 
@@ -157,12 +163,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 23 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-23-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 23 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-23-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;23.0.3          | 23.0.3  | Android SDK Build-Tools             | build-tools/23.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-23        | 3       | Android SDK Platform 23             | platforms/android-23/        |
 </details>
 
@@ -173,12 +181,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 24 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-24-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 24 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-24-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;24.0.3          | 24.0.3  | Android SDK Build-Tools             | build-tools/24.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-24        | 2       | Android SDK Platform 24             | platforms/android-24/        |
 </details>
 
@@ -189,12 +199,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 25 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-25-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 25 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-25-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;25.0.3          | 25.0.3  | Android SDK Build-Tools             | build-tools/25.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-25        | 3       | Android SDK Platform 25             | platforms/android-25/        |
 </details>
 
@@ -205,12 +217,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 26 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-26-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 26 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-26-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;26.0.3          | 26.0.3  | Android SDK Build-Tools             | build-tools/26.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-26        | 2       | Android SDK Platform 26             | platforms/android-26/        |
 </details>
 
@@ -221,12 +235,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 27 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-27-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 27 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-27-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;27.0.3          | 27.0.3  | Android SDK Build-Tools             | build-tools/27.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-27        | 3       | Android SDK Platform 27             | platforms/android-27/        |
 </details>
 
@@ -237,12 +253,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 28 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 28 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;28.0.3          | 28.0.3  | Android SDK Build-Tools             | build-tools/28.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-28        | 6       | Android SDK Platform 28             | platforms/android-28/        |
 </details>
 
@@ -253,12 +271,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 29 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 29 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;29.0.3          | 29.0.3  | Android SDK Build-Tools             | build-tools/29.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-29        | 5       | Android SDK Platform 29             | platforms/android-29/        |
 </details>
 
@@ -269,12 +289,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 30 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 30 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;30.0.3          | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-30        | 3       | Android SDK Platform 30             | platforms/android-30/        |
 </details>
 
@@ -285,12 +307,14 @@ RUN apk add --no-cache <list-of-packages>
 
 ![Docker Android 31 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
 
+![Docker Android 31 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;31.0.0          | 31.0.0  | Android SDK Build-Tools             | build-tools/31.0.0/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-31        | 1       | Android SDK Platform 31             | platforms/android-31/        |
 </details>
 
