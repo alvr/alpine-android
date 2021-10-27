@@ -55,20 +55,21 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 
 ## Tagging
 
-| API level        | JDK8                                                     | JDK11                              | JDK17                              |
-|------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
-| Base Image       | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
-| Android 5.0 (21) | `android-21`, `android-21-jdk8`                          | `android-21-jdk11`                 | `android-21-jdk17`                 |
-| Android 5.1 (22) | `android-22`, `android-22-jdk8`                          | `android-22-jdk11`                 | `android-22-jdk17`                 |
-| Android 6.0 (23) | `android-23`, `android-23-jdk8`                          | `android-23-jdk11`                 | `android-23-jdk17`                 |
-| Android 7.0 (24) | `android-24`, `android-24-jdk8`                          | `android-24-jdk11`                 | `android-24-jdk17`                 |
-| Android 7.1 (25) | `android-25`, `android-25-jdk8`                          | `android-25-jdk11`                 | `android-25-jdk17`                 |
-| Android 8.0 (26) | `android-26`, `android-26-jdk8`                          | `android-26-jdk11`                 | `android-26-jdk17`                 |
-| Android 8.1 (27) | `android-27`, `android-27-jdk8`                          | `android-27-jdk11`                 | `android-27-jdk17`                 |
-| Android 9.0 (28) | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
-| Android 10 (29)  | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
-| Android 11 (30)  | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
-| Android 12 (31)  | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
+| API level         | JDK8                                                     | JDK11                              | JDK17                              |
+|-------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
+| Base Image        | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
+| Android 5.0 (21)  | `android-21`, `android-21-jdk8`                          | `android-21-jdk11`                 | `android-21-jdk17`                 |
+| Android 5.1 (22)  | `android-22`, `android-22-jdk8`                          | `android-22-jdk11`                 | `android-22-jdk17`                 |
+| Android 6.0 (23)  | `android-23`, `android-23-jdk8`                          | `android-23-jdk11`                 | `android-23-jdk17`                 |
+| Android 7.0 (24)  | `android-24`, `android-24-jdk8`                          | `android-24-jdk11`                 | `android-24-jdk17`                 |
+| Android 7.1 (25)  | `android-25`, `android-25-jdk8`                          | `android-25-jdk11`                 | `android-25-jdk17`                 |
+| Android 8.0 (26)  | `android-26`, `android-26-jdk8`                          | `android-26-jdk11`                 | `android-26-jdk17`                 |
+| Android 8.1 (27)  | `android-27`, `android-27-jdk8`                          | `android-27-jdk11`                 | `android-27-jdk17`                 |
+| Android 9.0 (28)  | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
+| Android 10 (29)   | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
+| Android 11 (30)   | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
+| Android 12 (31)   | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
+| Android Sv2 (31)  | `android-Sv2`, `android-Sv2-jdk8`                        | `android-Sv2-jdk11`                | `android-Sv2-jdk17`                |
 
 > :memo: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that, those tags will be using JDK11.
 
@@ -317,6 +318,24 @@ RUN apk add --no-cache <list-of-packages>
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-31        | 1       | Android SDK Platform 31             | platforms/android-31/        |
+</details>
+
+<details>
+  <summary>See content of Android Sv2 image</summary>
+
+![Docker Android Sv2 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
+
+![Docker Android Sv2 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
+
+![Docker Android Sv2 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+
+| Path                        | Version     | Description                         | Location                     |
+|-----------------------------|-------------|-------------------------------------|------------------------------|
+| build-tools;32.0.0-rc1      | 32.0.0-rc1  | Android SDK Build-Tools             | build-tools/32.0.0-rc1/      |
+| extras;google;instantapps   | 1.9.0       | Google Play Instant Development SDK | extras/google/instantapps/   |
+| patcher;v4                  | 1           | SDK Patch Applier v4                | patcher/v4/                  |
+| platform-tools              | 31.0.3      | Android SDK Platform-Tools          | platform-tools/              |
+| platforms;android-Sv2       | 1           | Android SDK Platform Sv2            | platforms/android-Sv2/       |
 </details>
 
 ## Containers registries

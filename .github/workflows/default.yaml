@@ -100,7 +100,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, Sv2]
         jdk: [8, 11, 17]
 
     steps:
@@ -141,6 +141,7 @@ jobs:
               29) BUILD_TOOLS_VERSION="29.0.3" ;;
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
               31) BUILD_TOOLS_VERSION="31.0.0" ;;
+              Sv2) BUILD_TOOLS_VERSION="32.0.0-rc1" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
