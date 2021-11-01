@@ -100,7 +100,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        android-api: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, Sv2]
+        android-api: [28, 29, 30, 31, Sv2]
         jdk: [8, 11, 17]
 
     steps:
@@ -130,13 +130,6 @@ jobs:
           echo "TAGS=$TAGS" >> $GITHUB_ENV
 
           case ${{ matrix.android-api }} in
-              21) BUILD_TOOLS_VERSION="21.1.2" ;;
-              22) BUILD_TOOLS_VERSION="22.0.1" ;;
-              23) BUILD_TOOLS_VERSION="23.0.3" ;;
-              24) BUILD_TOOLS_VERSION="24.0.3" ;;
-              25) BUILD_TOOLS_VERSION="25.0.3" ;;
-              26) BUILD_TOOLS_VERSION="26.0.3" ;;
-              27) BUILD_TOOLS_VERSION="27.0.3" ;;
               28) BUILD_TOOLS_VERSION="28.0.3" ;;
               29) BUILD_TOOLS_VERSION="29.0.3" ;;
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
