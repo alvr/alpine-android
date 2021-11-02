@@ -5,29 +5,26 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/alvr/alpine-android/actions?query=workflow%3A%22Docker+Images+Builder%22"><img alt="GitHub build status" src="https://img.shields.io/github/workflow/status/alvr/alpine-android/Docker%20Images%20Builder?style=for-the-badge"/></a>
+  <a href="https://github.com/alvr/alpine-android/actions/workflows/default.yaml"><img alt="GitHub build status" src="https://img.shields.io/github/workflow/status/alvr/alpine-android/Docker%20Images%20Builder?logo=github"/></a>
+  <a href="https://github.com/alvr/alpine-android/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/alvr/alpine-android?logo=android&logoColor=white&color=066da5"/></a>
+  <a href="https://newreleases.io/dockerhub/alvrme/alpine-android"><img alt="Notify new versions" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-get%20notified-%23005cc5"/></a>
 </p>
 
 <p align="center">
-  <img alt="Docker Alpine Android Base Stars" src="https://img.shields.io/docker/stars/alvrme/alpine-android-base?label=Docker%20Base%20Stars&style=for-the-badge"/>
-  <img alt="Docker Alpine Android Base Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android-base?label=Docker%20Base%20Pulls&style=for-the-badge"/>
+  <img alt="Docker Alpine Android Base Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android-base?label=base%20pulls&logo=docker&logoColor=white&color=066da5"/>
+  <img alt="Docker Alpine Android Main Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android?label=main%20pulls&logo=docker&logoColor=white&color=066da5"/>
 </p>
 
 <p align="center">
-  <img alt="Docker Alpine Android Stars" src="https://img.shields.io/docker/stars/alvrme/alpine-android?label=Docker%20Stars&style=for-the-badge"/>
-  <img alt="Docker Alpine Android Pulls" src="https://img.shields.io/docker/pulls/alvrme/alpine-android?label=Docker%20Pulls&style=for-the-badge"/>
+  <a href="https://hub.docker.com/r/alvrme/alpine-android-base"><img alt="DockerHub Link" src="https://img.shields.io/badge/base%20image-hub-%23066da5?logo=docker&logoColor=white"/></a>
+  <a href="https://github.com/users/alvr/packages/container/package/alpine-android-base"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/base%20image-ghcr-black?logo=github&logoColor=white"/></a>
+  <a href="https://quay.io/repository/alvr/alpine-android-base"><img alt="Quay Link" src="https://img.shields.io/badge/base%20image-quay-%23D71E00?logo=redhat&logoColor=white"/></a>
 </p>
 
 <p align="center">
-  <a href="https://hub.docker.com/r/alvrme/alpine-android-base"><img alt="DockerHub Link" src="https://img.shields.io/badge/Base%20Image%20Link-DockerHub-%232496ED?style=for-the-badge"/></a>
-  <a href="https://github.com/users/alvr/packages/container/package/alpine-android-base"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/Base%20Image%20Link-GHCR-%23181717?style=for-the-badge"/></a>
-  <a href="https://quay.io/repository/alvr/alpine-android-base"><img alt="Quay Link" src="https://img.shields.io/badge/Base%20Image%20Link-Quay-%23D71E00?style=for-the-badge"/></a>
-</p>
-
-<p align="center">
-  <a href="https://hub.docker.com/r/alvrme/alpine-android"><img alt="DockerHub Link" src="https://img.shields.io/badge/Image%20Link-DockerHub-%232496ED?style=for-the-badge"/></a>
-  <a href="https://github.com/users/alvr/packages/container/package/alpine-android"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/Image%20Link-GHCR-%23181717?style=for-the-badge"/></a>
-  <a href="https://quay.io/repository/alvr/alpine-android"><img alt="Quay Link" src="https://img.shields.io/badge/Image%20Link-Quay-%23D71E00?style=for-the-badge"/></a>
+  <a href="https://hub.docker.com/r/alvrme/alpine-android"><img alt="DockerHub Link" src="https://img.shields.io/badge/main%20image-hub-%23066da5?logo=docker&logoColor=white"/></a>
+  <a href="https://github.com/users/alvr/packages/container/package/alpine-android"><img alt="GitHub Container Registry Link" src="https://img.shields.io/badge/main%20image-ghcr-black?logo=github&logoColor=white"/></a>
+  <a href="https://quay.io/repository/alvr/alpine-android"><img alt="Quay Link" src="https://img.shields.io/badge/main%20image-quay-%23D71E00?logo=redhat&logoColor=white"/></a>
 </p>
 
 ---
@@ -64,7 +61,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 12 (31)   | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
 | Android Sv2 (31)  | `android-Sv2`, `android-Sv2-jdk8`                        | `android-Sv2-jdk11`                | `android-Sv2-jdk17`                |
 
-> :memo: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that, those tags will be using JDK11.
+> :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
 > :warning: Android 12 is available. Android 12 will be using `latest` tag on January 1st, 2022.
 
@@ -80,18 +77,14 @@ Since January 1st 2021, new versions now include the date it was published so is
 
 A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.com/alvr/alpine-android/releases) are listed all the versions.
 
-> :memo: The versioning is not available for `alpine-android-base`.
+> :memo: Versioning is not available for `alpine-android-base`.
 
 ## Content
 
 <details>
   <summary>See content of Android Base image</summary>
   
-![Docker Android Base JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android Base JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android Base JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk8?label=jdk8%20image%20size) ![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=jdk11%20image%20size) ![Docker Android Base JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
@@ -118,11 +111,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 28 image</summary>
 
-![Docker Android 28 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android 28 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android 28 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android 28 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=jdk8%20image%20size) ![Docker Android 28 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=jdk11%20image%20size) ![Docker Android 28 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
@@ -136,11 +125,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 29 image</summary>
 
-![Docker Android 29 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android 29 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android 29 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android 29 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=jdk8%20image%20size) ![Docker Android 29 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=jdk11%20image%20size) ![Docker Android 29 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
@@ -154,11 +139,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 30 image</summary>
 
-![Docker Android 30 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android 30 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android 30 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android 30 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=jdk8%20image%20size) ![Docker Android 30 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=jdk11%20image%20size) ![Docker Android 30 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
@@ -172,11 +153,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 31 image</summary>
 
-![Docker Android 31 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android 31 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android 31 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android 31 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=jdk8%20image%20size) ![Docker Android 31 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=jdk11%20image%20size) ![Docker Android 31 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
@@ -190,11 +167,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android Sv2 image</summary>
 
-![Docker Android Sv2 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk8?label=Docker%20JDK8%20Size&style=for-the-badge)
-
-![Docker Android Sv2 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk11?label=Docker%20JDK11%20Size&style=for-the-badge)
-
-![Docker Android Sv2 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk17?label=Docker%20JDK17%20Size&style=for-the-badge)
+![Docker Android Sv2 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk8?label=jdk8%20image%20size) ![Docker Android Sv2 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk11?label=jdk11%20image%20size) ![Docker Android Sv2 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version     | Description                         | Location                     |
 |-----------------------------|-------------|-------------------------------------|------------------------------|
