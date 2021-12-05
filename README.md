@@ -33,9 +33,9 @@
 
 There are two variants of the image:
 
-* JDK8 images are based on `bellsoft/liberica-openjdk-alpine:8` (JDK 8u302-8) and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on `bellsoft/liberica-openjdk-alpine:11` (JDK 11.0.12-7) and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on `bellsoft/liberica-openjdk-alpine:17` (JDK 17-35) and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on `bellsoft/liberica-openjdk-alpine:8` (JDK 8u312-7) and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on `bellsoft/liberica-openjdk-alpine:11` (JDK 11.0.13-8) and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on `bellsoft/liberica-openjdk-alpine:17` (JDK 17.0.1-12) and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
