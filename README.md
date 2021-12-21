@@ -31,11 +31,11 @@
 
 ## Variants
 
-There are two variants of the image:
+There are three variants of the image, all based on `bellsoft/liberica-openjdk-alpine`:
 
-* JDK8 images are based on `bellsoft/liberica-openjdk-alpine:8` (JDK 8u312-7) and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on `bellsoft/liberica-openjdk-alpine:11` (JDK 11.0.13-8) and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on `bellsoft/liberica-openjdk-alpine:17` (JDK 17.0.1-12) and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on Liberica JDK 8u312-7 and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on Liberica JDK 11.0.13-8 and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on Liberica JDK 17.0.1-12 and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
@@ -52,14 +52,14 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 
 ## Tagging
 
-| API level         | JDK8                                                     | JDK11                              | JDK17                              |
-|-------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
-| Base Image        | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
-| Android 9.0 (28)  | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
-| Android 10 (29)   | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
-| Android 11 (30)   | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
-| Android 12 (31)   | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
-| Android Sv2 (31)  | `android-Sv2`, `android-Sv2-jdk8`                        | `android-Sv2-jdk11`                | `android-Sv2-jdk17`                |
+| API level            | JDK8                                                     | JDK11                              | JDK17                              |
+|----------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
+| Base Image           | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
+| Android 9.0 (28)     | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
+| Android 10 (29)      | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
+| Android 11 (30)      | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
+| Android 12 (31)      | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
+| Android API 32 (32)  | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
@@ -165,17 +165,17 @@ RUN apk add --no-cache <list-of-packages>
 </details>
 
 <details>
-  <summary>See content of Android Sv2 image</summary>
+  <summary>See content of Android 32 image</summary>
 
-![Docker Android Sv2 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk8?label=jdk8%20image%20size) ![Docker Android Sv2 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk11?label=jdk11%20image%20size) ![Docker Android Sv2 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Sv2-jdk17?label=jdk17%20image%20size)
+![Docker Android 32 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk8?label=jdk8%20image%20size) ![Docker Android 32 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk11?label=jdk11%20image%20size) ![Docker Android 32 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk17?label=jdk17%20image%20size)
 
-| Path                        | Version     | Description                         | Location                     |
-|-----------------------------|-------------|-------------------------------------|------------------------------|
-| build-tools;32.0.0-rc1      | 32.0.0-rc1  | Android SDK Build-Tools             | build-tools/32.0.0-rc1/      |
-| extras;google;instantapps   | 1.9.0       | Google Play Instant Development SDK | extras/google/instantapps/   |
-| patcher;v4                  | 1           | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3      | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-Sv2       | 1           | Android SDK Platform Sv2            | platforms/android-Sv2/       |
+| Path                        | Version | Description                         | Location                     |
+|-----------------------------|---------|-------------------------------------|------------------------------|
+| build-tools;32.0.0          | 32.0.0  | Android SDK Build-Tools             | build-tools/32.0.0/          |
+| extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
+| patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
+| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platforms;android-32        | 1       | Android SDK Platform 32             | platforms/android-32/        |
 </details>
 
 ## Containers registries
