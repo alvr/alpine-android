@@ -57,13 +57,11 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Base Image           | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
 | Android 9.0 (28)     | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
 | Android 10 (29)      | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
-| Android 11 (30)      | `android-30`, `android-30-jdk8`, `latest`, `latest-jdk8` | `android-30-jdk11`, `latest-jdk11` | `android-30-jdk17`, `latest-jdk17` |
-| Android 12 (31)      | `android-31`, `android-31-jdk8`                          | `android-31-jdk11`                 | `android-31-jdk17`                 |
+| Android 11 (30)      | `android-30`, `android-30-jdk8`                          | `android-30-jdk11`                 | `android-30-jdk17`                 |
+| Android 12 (31)      | `android-31`, `android-31-jdk8`, `latest`, `latest-jdk8` | `android-31-jdk11`, `latest-jdk11` | `android-31-jdk17`, `latest-jdk17` |
 | Android API 32 (32)  | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
-
-> :warning: Android 12 is available. Android 12 will be using `latest` tag on January 1st, 2022.
 
 ### Versioning
 

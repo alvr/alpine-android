@@ -21,7 +21,7 @@ env:
   QUAY_USER: alvr
 
   DEFAULT_JDK_VERSION: 8
-  LATEST_STABLE_API: 30
+  LATEST_STABLE_API: 31
 
 jobs:
   build_base_images:
