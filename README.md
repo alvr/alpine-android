@@ -33,9 +33,9 @@
 
 There are three variants of the image, all based on `bellsoft/liberica-openjdk-alpine`:
 
-* JDK8 images are based on Liberica JDK 8u312-7 and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on Liberica JDK 11.0.13-8 and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on Liberica JDK 17.0.1-12 and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on Liberica JDK 8u322-6 and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on Liberica JDK 11.0.14.1-1 and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on Liberica JDK 17.0.2-9 and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
@@ -59,7 +59,8 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 10 (29)      | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
 | Android 11 (30)      | `android-30`, `android-30-jdk8`                          | `android-30-jdk11`                 | `android-30-jdk17`                 |
 | Android 12 (31)      | `android-31`, `android-31-jdk8`, `latest`, `latest-jdk8` | `android-31-jdk11`, `latest-jdk11` | `android-31-jdk17`, `latest-jdk17` |
-| Android API 32 (32)  | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
+| Android 12L (32)     | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
+| Android 13 (33)      | `android-Tiramisu`, `android-Tiramisu-jdk8`              | `android-Tiramisu-jdk11`           | `android-Tiramisu-jdk17`           |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
@@ -88,7 +89,7 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 
 ## Extend from Alpine Android Base
 
@@ -107,73 +108,87 @@ RUN apk add --no-cache <list-of-packages>
 </details>
 
 <details>
-  <summary>See content of Android 28 image</summary>
+  <summary>See content of Android 9 (Pie) image</summary>
 
-![Docker Android 28 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=jdk8%20image%20size) ![Docker Android 28 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=jdk11%20image%20size) ![Docker Android 28 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=jdk17%20image%20size)
+![Docker Android 9 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=jdk8%20image%20size) ![Docker Android 9 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=jdk11%20image%20size) ![Docker Android 9 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;28.0.3          | 28.0.3  | Android SDK Build-Tools             | build-tools/28.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-28        | 6       | Android SDK Platform 28             | platforms/android-28/        |
 </details>
 
 <details>
-  <summary>See content of Android 29 image</summary>
+  <summary>See content of Android 10 (Q) image</summary>
 
-![Docker Android 29 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=jdk8%20image%20size) ![Docker Android 29 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=jdk11%20image%20size) ![Docker Android 29 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=jdk17%20image%20size)
+![Docker Android 10 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=jdk8%20image%20size) ![Docker Android 10 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=jdk11%20image%20size) ![Docker Android 10 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;29.0.3          | 29.0.3  | Android SDK Build-Tools             | build-tools/29.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-29        | 5       | Android SDK Platform 29             | platforms/android-29/        |
 </details>
 
 <details>
-  <summary>See content of Android 30 image</summary>
+  <summary>See content of Android 11 (R) image</summary>
 
-![Docker Android 30 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=jdk8%20image%20size) ![Docker Android 30 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=jdk11%20image%20size) ![Docker Android 30 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=jdk17%20image%20size)
+![Docker Android 11 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=jdk8%20image%20size) ![Docker Android 11 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=jdk11%20image%20size) ![Docker Android 11 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;30.0.3          | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-30        | 3       | Android SDK Platform 30             | platforms/android-30/        |
 </details>
 
 <details>
-  <summary>See content of Android 31 image</summary>
+  <summary>See content of Android 12 (S) image</summary>
 
-![Docker Android 31 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=jdk8%20image%20size) ![Docker Android 31 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=jdk11%20image%20size) ![Docker Android 31 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=jdk17%20image%20size)
+![Docker Android 12 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=jdk8%20image%20size) ![Docker Android 12 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=jdk11%20image%20size) ![Docker Android 12 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;31.0.0          | 31.0.0  | Android SDK Build-Tools             | build-tools/31.0.0/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-31        | 1       | Android SDK Platform 31             | platforms/android-31/        |
 </details>
 
 <details>
-  <summary>See content of Android 32 image</summary>
+  <summary>See content of Android 12L image</summary>
 
-![Docker Android 32 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk8?label=jdk8%20image%20size) ![Docker Android 32 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk11?label=jdk11%20image%20size) ![Docker Android 32 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk17?label=jdk17%20image%20size)
+![Docker Android 12L JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk8?label=jdk8%20image%20size) ![Docker Android 12L JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk11?label=jdk11%20image%20size) ![Docker Android 12L JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk17?label=jdk17%20image%20size)
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
 | build-tools;32.0.0          | 32.0.0  | Android SDK Build-Tools             | build-tools/32.0.0/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 31.0.3  | Android SDK Platform-Tools          | platform-tools/              |
+| platform-tools              | 32.0.0  | Android SDK Platform-Tools          | platform-tools/              |
 | platforms;android-32        | 1       | Android SDK Platform 32             | platforms/android-32/        |
+</details>
+
+<details>
+  <summary>See content of Android 13 (Tiramisu Preview) image</summary>
+
+![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk17?label=jdk17%20image%20size)
+
+| Path                        | Version    | Description                         | Location                     |
+|-----------------------------|------------|-------------------------------------|------------------------------|
+| build-tools;33.0.0-rc1      | 33.0.0-rc1 | Android SDK Build-Tools             | build-tools/33.0.0-rc1/      |
+| extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
+| patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
+| platform-tools              | 32.0.0     | Android SDK Platform-Tools          | platform-tools/              |
+| platforms;android-Tiramisu  | 1          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
 </details>
 
 ## Containers registries
