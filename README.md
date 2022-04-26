@@ -33,9 +33,9 @@
 
 There are three variants of the image, all based on `bellsoft/liberica-openjdk-alpine`:
 
-* JDK8 images are based on Liberica JDK 8u322-6 and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on Liberica JDK 11.0.14.1-1 and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on Liberica JDK 17.0.2-9 and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on Liberica JDK 8u332-9 and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on Liberica JDK 11.0.15-10 and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on Liberica JDK 17.0.3-7 and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
@@ -184,11 +184,11 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                        | Version    | Description                         | Location                     |
 |-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;33.0.0-rc2      | 33.0.0-rc2 | Android SDK Build-Tools             | build-tools/33.0.0-rc2/      |
+| build-tools;33.0.0-rc2      | 33.0.0-rc3 | Android SDK Build-Tools             | build-tools/33.0.0-rc3/      |
 | extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 33.0.1     | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-Tiramisu  | 2          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
+| platforms;android-Tiramisu  | 3          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
 </details>
 
 ## Containers registries
