@@ -135,7 +135,7 @@ jobs:
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
               31) BUILD_TOOLS_VERSION="31.0.0" ;;
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
-              Tiramisu) BUILD_TOOLS_VERSION="33.0.0-rc3" ;;
+              Tiramisu) BUILD_TOOLS_VERSION="33.0.0-rc4" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 

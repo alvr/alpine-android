@@ -170,7 +170,7 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                        | Version | Description                         | Location                     |
 |-----------------------------|---------|-------------------------------------|------------------------------|
-| build-tools;33.0.1          | 33.0.1  | Android SDK Build-Tools             | build-tools/33.0.1/          |
+| build-tools;32.0.0          | 32.0.0  | Android SDK Build-Tools             | build-tools/32.0.0/          |
 | extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 33.0.1  | Android SDK Platform-Tools          | platform-tools/              |
@@ -184,11 +184,11 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                        | Version    | Description                         | Location                     |
 |-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;33.0.0-rc2      | 33.0.0-rc3 | Android SDK Build-Tools             | build-tools/33.0.0-rc3/      |
+| build-tools;33.0.0-rc4      | 33.0.0-rc4 | Android SDK Build-Tools             | build-tools/33.0.0-rc4/      |
 | extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
 | patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
 | platform-tools              | 33.0.1     | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-Tiramisu  | 3          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
+| platforms;android-Tiramisu  | 4          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
 </details>
 
 ## Containers registries
