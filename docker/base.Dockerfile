@@ -5,8 +5,8 @@ LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ENV ANDROID_SDK_ROOT "/opt/sdk"
 ENV ANDROID_HOME ${ANDROID_SDK_ROOT}
-ENV CMDLINE_VERSION "6.0"
-ENV SDK_TOOLS "8092744"
+ENV CMDLINE_VERSION "7.0"
+ENV SDK_TOOLS "8512546"
 ENV PATH $PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
 RUN apk upgrade && \
