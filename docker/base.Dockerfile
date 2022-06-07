@@ -10,7 +10,7 @@ ENV SDK_TOOLS "8512546"
 ENV PATH $PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
 RUN apk upgrade && \
-    apk add --no-cache bash curl git unzip wget && \
+    apk add --no-cache bash curl git unzip wget coreutils && \
     rm -rf /tmp/* && \
     rm -rf /var/cache/apk/* && \
     wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS}_latest.zip -O /tmp/tools.zip && \
