@@ -60,7 +60,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 11 (30)      | `android-30`, `android-30-jdk8`                          | `android-30-jdk11`                 | `android-30-jdk17`                 |
 | Android 12 (31)      | `android-31`, `android-31-jdk8`, `latest`, `latest-jdk8` | `android-31-jdk11`, `latest-jdk11` | `android-31-jdk17`, `latest-jdk17` |
 | Android 12L (32)     | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
-| Android 13 (33)      | `android-Tiramisu`, `android-Tiramisu-jdk8`              | `android-Tiramisu-jdk11`           | `android-Tiramisu-jdk17`           |
+| Android 13 (33)      | `android-33`, `android-33-jdk8`                          | `android-33-jdk11`                 | `android-33-jdk17`                 |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
@@ -178,17 +178,18 @@ RUN apk add --no-cache <list-of-packages>
 </details>
 
 <details>
-  <summary>See content of Android 13 (Tiramisu Preview) image</summary>
+  <summary>See content of Android 13 image</summary>
 
-![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-Tiramisu-jdk17?label=jdk17%20image%20size)
+![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk17?label=jdk17%20image%20size)
 
-| Path                        | Version    | Description                         | Location                     |
-|-----------------------------|------------|-------------------------------------|------------------------------|
-| build-tools;33.0.0-rc4      | 33.0.0-rc4 | Android SDK Build-Tools             | build-tools/33.0.0-rc4/      |
-| extras;google;instantapps   | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/   |
-| patcher;v4                  | 1          | SDK Patch Applier v4                | patcher/v4/                  |
-| platform-tools              | 33.0.2     | Android SDK Platform-Tools          | platform-tools/              |
-| platforms;android-Tiramisu  | 4          | Android SDK Platform Tiramisu       | platforms/android-Tiramisu/  |
+| Path                        | Version | Description                         | Location                     |
+|-----------------------------|---------|-------------------------------------|------------------------------|
+| build-tools;33.0.0          | 33.0.0  | Android SDK Build-Tools             | build-tools/33.0.0/          |
+| extras;google;instantapps   | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/   |
+| patcher;v4                  | 1       | SDK Patch Applier v4                | patcher/v4/                  |
+| platform-tools              | 33.0.2  | Android SDK Platform-Tools          | platform-tools/              |
+| platforms;android-33        | 1       | Android SDK Platform 33             | platforms/android-33/        |
+
 </details>
 
 ## Containers registries
