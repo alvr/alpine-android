@@ -20,8 +20,8 @@ env:
   DOCKERHUB_USER: alvrme
   QUAY_USER: alvr
 
-  DEFAULT_JDK_VERSION: 8
-  LATEST_STABLE_API: 31
+  DEFAULT_JDK_VERSION: 11
+  LATEST_STABLE_API: 32
 
 jobs:
   build_base_images:

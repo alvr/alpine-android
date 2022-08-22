@@ -33,9 +33,9 @@
 
 There are three variants of the image, all based on `bellsoft/liberica-openjdk-alpine`:
 
-* JDK8 images are based on Liberica JDK 8u332-9 and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on Liberica JDK 11.0.15-10 and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on Liberica JDK 17.0.3-7 and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on Liberica JDK 8u345-1 and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on Liberica JDK 11.0.16.1-1 and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on Liberica JDK 17.0.4.1-1 and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
@@ -52,15 +52,15 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 
 ## Tagging
 
-| API level            | JDK8                                                     | JDK11                              | JDK17                              |
-|----------------------|----------------------------------------------------------|------------------------------------|------------------------------------|
-| Base Image           | `jdk8`, `latest`, `latest-jdk8`                          | `jdk11`, `latest-jdk11`            | `jdk17`, `latest-jdk17`            |
-| Android 9.0 (28)     | `android-28`, `android-28-jdk8`                          | `android-28-jdk11`                 | `android-28-jdk17`                 |
-| Android 10 (29)      | `android-29`, `android-29-jdk8`                          | `android-29-jdk11`                 | `android-29-jdk17`                 |
-| Android 11 (30)      | `android-30`, `android-30-jdk8`                          | `android-30-jdk11`                 | `android-30-jdk17`                 |
-| Android 12 (31)      | `android-31`, `android-31-jdk8`, `latest`, `latest-jdk8` | `android-31-jdk11`, `latest-jdk11` | `android-31-jdk17`, `latest-jdk17` |
-| Android 12L (32)     | `android-32`, `android-32-jdk8`                          | `android-32-jdk11`                 | `android-32-jdk17`                 |
-| Android 13 (33)      | `android-33`, `android-33-jdk8`                          | `android-33-jdk11`                 | `android-33-jdk17`                 |
+| API level            | JDK8                             | JDK11                                                      | JDK17                              |
+|----------------------|----------------------------------|------------------------------------------------------------|------------------------------------|
+| Base Image           | `jdk8` `latest-jdk8`             | `jdk11`, `latest`, `latest-jdk11`                          | `jdk17`, `latest-jdk17`            |
+| Android 9.0 (28)     | `android-28-jdk8`                | `android-28`, `android-28-jdk11`                           | `android-28-jdk17`                 |
+| Android 10 (29)      | `android-29-jdk8`                | `android-29`, `android-29-jdk11`                           | `android-29-jdk17`                 |
+| Android 11 (30)      | `android-30-jdk8`                | `android-30`, `android-30-jdk11`                           | `android-30-jdk17`                 |
+| Android 12 (31)      | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                           | `android-31-jdk17`                 |
+| Android 12L (32)     | `android-32-jdk8`, `latest-jdk8` | `android-32`, `android-32-jdk11`, `latest`, `latest-jdk11` | `android-32-jdk17`, `latest-jdk17` |
+| Android 13 (33)      | `android-33-jdk8`                | `android-33`, `android-33-jdk11`                           | `android-33-jdk17`                 |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
