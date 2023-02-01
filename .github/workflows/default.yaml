@@ -1,9 +1,10 @@
 name: Docker Images Builder
 
 on:
+  pull_request:
   push:
     branches:
-      - "!*"
+      - master
     tags:
       - v*
 
@@ -21,7 +22,7 @@ env:
   QUAY_USER: alvr
 
   DEFAULT_JDK_VERSION: 11
-  LATEST_STABLE_API: 32
+  LATEST_STABLE_API: 33
 
 jobs:
   build_base_images:
@@ -34,64 +35,72 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Tags
+      - name: Set environment variables
         shell: sh
         run: |
           set -eu
 
-          TAGS="jdk${{ matrix.jdk }}"
-          TAGS="$TAGS,latest-jdk${{ matrix.jdk }}"
-          if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
-            TAGS="$TAGS,latest"
-          fi
-          echo "TAGS=$TAGS" >> $GITHUB_ENV
+          case ${{ matrix.jdk }} in
+              8)
+                CMDLINE_VERSION="8.0"
+                SDK_TOOLS_VERSION="9123335" ;;
+              *)
+                CMDLINE_VERSION="9.0"
+                SDK_TOOLS_VERSION="9477386" ;;
+          esac
+          echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
+          echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
 
       - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
+        id: meta
+        uses: docker/metadata-action@v4
         with:
           images: |
             ${{ env.DH_IMAGE_BASE_NAME }}
             ghcr.io/${{ env.GHCR_IMAGE_BASE_NAME }}
             quay.io/${{ env.QUAY_IMAGE_BASE_NAME }}
-          tag-custom: ${{ env.TAGS }}
-          tag-custom-only: true
+          tags: |
+            type=raw,value=jdk${{ matrix.jdk }}
+            type=raw,value=latest-jdk${{ matrix.jdk }}
+            type=raw,value=latest,enable=${{ matrix.jdk == env.DEFAULT_JDK_VERSION }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASS }}
 
       - name: Login to Quay
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: quay.io
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android Base JDK${{ matrix.jdk }}
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: ./docker
           file: ./docker/base.Dockerfile
-          push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          push: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
+            CMDLINE_VERSION=${{ env.CMDLINE_VERSION }}
+            SDK_TOOLS_VERSION=${{ env.SDK_TOOLS_VERSION }}
 
   build_images:
     name: Build Alpine Android Image
@@ -105,29 +114,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Get tag version
-        id: tag_version
-        uses: battila7/get-version-action@v2
+        uses: actions/checkout@v3
 
       - name: Set environment variables
         shell: sh
         run: |
           set -eu
-
-          TAGS="android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}"
-          TAGS="$TAGS,android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}-${{ steps.tag_version.outputs.version }}"
-          if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
-            TAGS="$TAGS,android-${{ matrix.android-api }}"
-          fi
-          if [ "${{ matrix.android-api }}" = "${{ env.LATEST_STABLE_API }}" ]; then
-            TAGS="$TAGS,latest-jdk${{ matrix.jdk }}"
-            if [ "${{ matrix.jdk }}" = "${{ env.DEFAULT_JDK_VERSION }}" ]; then
-              TAGS="$TAGS,latest"
-            fi
-          fi
-          echo "TAGS=$TAGS" >> $GITHUB_ENV
 
           case ${{ matrix.android-api }} in
               28) BUILD_TOOLS_VERSION="28.0.3" ;;
@@ -140,47 +132,51 @@ jobs:
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
       - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
+        id: meta
+        uses: docker/metadata-action@v4
         with:
           images: |
             ${{ env.DH_IMAGE_NAME }}
             ghcr.io/${{ env.GHCR_IMAGE_NAME }}
             quay.io/${{ env.QUAY_IMAGE_NAME }}
-          tag-custom: ${{ env.TAGS }}
-          tag-custom-only: true
+          tags: |
+            type=raw,value=android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}
+            type=raw,value=android-${{ matrix.android-api }}-jdk${{ matrix.jdk }}-${{ github.ref_name }},enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=raw,value=android-${{ matrix.android-api }},enable=${{ matrix.jdk == env.DEFAULT_JDK_VERSION }}
+            type=raw,value=latest-jdk${{ matrix.jdk }},enable=${{ matrix.android-api == env.LATEST_STABLE_API }}
+            type=raw,value=latest,enable=${{ matrix.android-api == env.LATEST_STABLE_API && matrix.jdk == env.DEFAULT_JDK_VERSION }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASS }}
 
       - name: Login to Quay
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: quay.io
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android API ${{ matrix.android-api }} JDK${{ matrix.jdk }}
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: ./docker
           file: ./docker/android.Dockerfile
-          push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          push: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             JDK_VERSION=${{ matrix.jdk }}
             BUILD_TOOLS=${{ env.BUILD_TOOLS_VERSION }}
