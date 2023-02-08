@@ -109,7 +109,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        android-api: [28, 29, 30, 31, 32, 33]
+        android-api: [28, 29, 30, 31, 32, 33, UpsideDownCake]
         jdk: [8, 11, 17]
 
     steps:
@@ -127,7 +127,8 @@ jobs:
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
               31) BUILD_TOOLS_VERSION="31.0.0" ;;
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
-              33) BUILD_TOOLS_VERSION="33.0.1" ;;
+              33) BUILD_TOOLS_VERSION="33.0.2" ;;
+              UpsideDownCake) BUILD_TOOLS_VERSION="34.0.0-rc1" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
