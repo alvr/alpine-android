@@ -200,11 +200,11 @@ RUN apk add --no-cache <list-of-packages>
 
 | Path                             | Version    | Description                         | Location                          |
 |----------------------------------|------------|-------------------------------------|-----------------------------------|
-| build-tools;34.0.0-rc1           | 34.0.0-rc1 | Android SDK Build-Tools             | build-tools/34.0.0-rc1/           |
+| build-tools;34.0.0-rc2           | 34.0.0-rc2 | Android SDK Build-Tools             | build-tools/34.0.0-rc2/           |
 | extras;google;instantapps        | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/        |
 | patcher;v4                       | 1          | SDK Patch Applier v4                | patcher/v4/                       |
 | platform-tools                   | 34.0.0     | Android SDK Platform-Tools          | platform-tools/                   |
-| platforms;android-UpsideDownCake | 1          | Android SDK Platform UpsideDownCake | platforms/android-UpsideDownCake/ |
+| platforms;android-UpsideDownCake | 2          | Android SDK Platform UpsideDownCake | platforms/android-UpsideDownCake/ |
 
 </details>
 
