@@ -128,7 +128,7 @@ jobs:
               31) BUILD_TOOLS_VERSION="31.0.0" ;;
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
               33) BUILD_TOOLS_VERSION="33.0.2" ;;
-              UpsideDownCake) BUILD_TOOLS_VERSION="34.0.0-rc2" ;;
+              UpsideDownCake) BUILD_TOOLS_VERSION="34.0.0-rc4" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
