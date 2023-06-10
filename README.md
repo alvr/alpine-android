@@ -39,16 +39,11 @@ There are three variants of the image, all based on `bellsoft/liberica-openjdk-a
 
 ### Which one should I use?
 
-The recommended version is JDK8 if you are not using AGP v7.0.0+ or you are using DataBinding with a version of AGP prior to v7.0.0. Otherwise you must use JDK11 version because AGP v7.0.0+ will only work with version 11+ of the JDK.
-
-If you want to use a JDK11 image with a version of AGP prior to v7, remember that JAXB is not included and you must add the following dependencies if using DataBinding:
-
-```groovy
-// In Groovy
-implementation "org.glassfish.jaxb:jaxb-runtime:2.3.3"
-// or in Kotlin DSL
-implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
-```
+| JDK version | AGP version         |
+|-------------|---------------------|
+| 8           | < 7.0.0             |
+| 11          | >= 7.0.0 && < 8.0.0 |
+| 17          | >= 8.0.0            |
 
 ## Tagging
 
@@ -61,7 +56,7 @@ implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
 | Android 12 (31)             | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                           | `android-31-jdk17`                 |
 | Android 12L (32)            | `android-32-jdk8`                | `android-32`, `android-32-jdk11`                           | `android-32-jdk17`                 |
 | Android 13 (33)             | `android-33-jdk8`, `latest-jdk8` | `android-33`, `android-33-jdk11`, `latest`, `latest-jdk11` | `android-33-jdk17`, `latest-jdk17` |
-| Android UpsideDownCake (34) | `android-UpsideDownCake-jdk8`    | `android-UpsideDownCake`, `android-UpsideDownCake-jdk11`   | `android-UpsideDownCake-jdk17`     |
+| Android 14 (34)             | `android-34-jdk8`                | `android-34`, `android-34-jdk11`                           | `android-34-jdk17`                 |
 
 > :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
 
@@ -90,7 +85,7 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 |---------------------------|---------|-------------------------------------|----------------------------|
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 
 ## Extend from Alpine Android Base
 
@@ -118,7 +113,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;28.0.3        | 28.0.3  | Android SDK Build-Tools             | build-tools/28.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-28      | 6       | Android SDK Platform 28             | platforms/android-28/      |
 </details>
 
@@ -132,7 +127,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;29.0.3        | 29.0.3  | Android SDK Build-Tools             | build-tools/29.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-29      | 5       | Android SDK Platform 29             | platforms/android-29/      |
 </details>
 
@@ -146,7 +141,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;30.0.3        | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-30      | 3       | Android SDK Platform 30             | platforms/android-30/      |
 </details>
 
@@ -160,7 +155,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;31.0.0        | 31.0.0  | Android SDK Build-Tools             | build-tools/31.0.0/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-31      | 1       | Android SDK Platform 31             | platforms/android-31/      |
 </details>
 
@@ -174,7 +169,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;32.0.0        | 32.0.0  | Android SDK Build-Tools             | build-tools/32.0.0/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-32      | 1       | Android SDK Platform 32             | platforms/android-32/      |
 </details>
 
@@ -188,23 +183,23 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;33.0.2        | 33.0.2  | Android SDK Build-Tools             | build-tools/33.0.2/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.1  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.3  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-33      | 2       | Android SDK Platform 33             | platforms/android-33/      |
 
 </details>
 
 <details>
-  <summary>See content of Android UpsideDownCake image</summary>
+  <summary>See content of Android 14 (U) image</summary>
 
-![Docker Android UpsideDownCake JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-UpsideDownCake-jdk8?label=jdk8%20image%20size) ![Docker Android UpsideDownCake JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-UpsideDownCake-jdk11?label=jdk11%20image%20size) ![Docker Android UpsideDownCake JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-UpsideDownCake-jdk17?label=jdk17%20image%20size)
+![Docker Android 14 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk8?label=jdk8%20image%20size) ![Docker Android 14 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk11?label=jdk11%20image%20size) ![Docker Android 14 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk17?label=jdk17%20image%20size)
 
 | Path                             | Version    | Description                         | Location                          |
 |----------------------------------|------------|-------------------------------------|-----------------------------------|
-| build-tools;34.0.0-rc4           | 34.0.0-rc4 | Android SDK Build-Tools             | build-tools/34.0.0-rc4/           |
+| build-tools;34.0.0               | 34.0.0     | Android SDK Build-Tools             | build-tools/34.0.0/               |
 | extras;google;instantapps        | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/        |
 | patcher;v4                       | 1          | SDK Patch Applier v4                | patcher/v4/                       |
-| platform-tools                   | 34.0.1     | Android SDK Platform-Tools          | platform-tools/                   |
-| platforms;android-UpsideDownCake | 4          | Android SDK Platform UpsideDownCake | platforms/android-UpsideDownCake/ |
+| platform-tools                   | 34.0.3     | Android SDK Platform-Tools          | platform-tools/                   |
+| platforms;android-34             | 1          | Android SDK Platform 34             | platforms/android-34/             |
 
 </details>
 
