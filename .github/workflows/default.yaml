@@ -46,9 +46,12 @@ jobs:
               8)
                 CMDLINE_VERSION="8.0"
                 SDK_TOOLS_VERSION="9123335" ;;
-              *)
-                CMDLINE_VERSION="9.0"
-                SDK_TOOLS_VERSION="9477386" ;;
+              11)
+                CMDLINE_VERSION="10.0"
+                SDK_TOOLS_VERSION="9862592" ;;
+              17)
+                CMDLINE_VERSION="11.0"
+                SDK_TOOLS_VERSION="10406996" ;;
           esac
           echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
           echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
