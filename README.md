@@ -33,9 +33,9 @@
 
 There are three variants of the image, all based on `bellsoft/liberica-openjdk-alpine`:
 
-* JDK8 images are based on Liberica JDK 8u372-7 and uses the tag's suffix `-jdk8`.
-* JDK11 images are based on Liberica JDK 11.0.19-7 and uses the tag's suffix `-jdk11`.
-* JDK17 images are based on Liberica JDK 17.0.7-7 and uses the tag's suffix `-jdk17`.
+* JDK8 images are based on Liberica JDK 8u392-9 and uses the tag's suffix `-jdk8`.
+* JDK11 images are based on Liberica JDK 11.0.21-10 and uses the tag's suffix `-jdk11`.
+* JDK17 images are based on Liberica JDK 17.0.9-11 and uses the tag's suffix `-jdk17`.
 
 ### Which one should I use?
 
@@ -85,7 +85,7 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 |---------------------------|---------|-------------------------------------|----------------------------|
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 
 ## Extend from Alpine Android Base
 
@@ -95,7 +95,7 @@ Use the [following configuration](https://github.com/alvr/alpine-android#use-as-
 RUN sdkmanager <list-of-packages>
 ```
 
-If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.16). To install an Android package, include the following line on your Dockerfile:
+If you want to install an Alpine package [available](https://pkgs.alpinelinux.org/packages?branch=v3.18). To install an Android package, include the following line on your Dockerfile:
 
 ```dockerfile
 RUN apk add --no-cache <list-of-packages>
@@ -113,7 +113,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;28.0.3        | 28.0.3  | Android SDK Build-Tools             | build-tools/28.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-28      | 6       | Android SDK Platform 28             | platforms/android-28/      |
 </details>
 
@@ -127,7 +127,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;29.0.3        | 29.0.3  | Android SDK Build-Tools             | build-tools/29.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-29      | 5       | Android SDK Platform 29             | platforms/android-29/      |
 </details>
 
@@ -141,7 +141,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;30.0.3        | 30.0.3  | Android SDK Build-Tools             | build-tools/30.0.3/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-30      | 3       | Android SDK Platform 30             | platforms/android-30/      |
 </details>
 
@@ -155,7 +155,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;31.0.0        | 31.0.0  | Android SDK Build-Tools             | build-tools/31.0.0/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-31      | 1       | Android SDK Platform 31             | platforms/android-31/      |
 </details>
 
@@ -169,12 +169,12 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;32.0.0        | 32.0.0  | Android SDK Build-Tools             | build-tools/32.0.0/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-32      | 1       | Android SDK Platform 32             | platforms/android-32/      |
 </details>
 
 <details>
-  <summary>See content of Android 13 (T) image</summary>
+  <summary>See content of Android 13 (Tiramisu) image</summary>
 
 ![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk17?label=jdk17%20image%20size)
 
@@ -183,13 +183,13 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;33.0.2        | 33.0.2  | Android SDK Build-Tools             | build-tools/33.0.2/        |
 | extras;google;instantapps | 1.9.0   | Google Play Instant Development SDK | extras/google/instantapps/ |
 | patcher;v4                | 1       | SDK Patch Applier v4                | patcher/v4/                |
-| platform-tools            | 34.0.4  | Android SDK Platform-Tools          | platform-tools/            |
+| platform-tools            | 34.0.5  | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-33      | 2       | Android SDK Platform 33             | platforms/android-33/      |
 
 </details>
 
 <details>
-  <summary>See content of Android 14 (U) image</summary>
+  <summary>See content of Android 14 (Upside-down Cake) image</summary>
 
 ![Docker Android 14 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk8?label=jdk8%20image%20size) ![Docker Android 14 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk11?label=jdk11%20image%20size) ![Docker Android 14 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk17?label=jdk17%20image%20size)
 
@@ -198,7 +198,7 @@ RUN apk add --no-cache <list-of-packages>
 | build-tools;34.0.0               | 34.0.0     | Android SDK Build-Tools             | build-tools/34.0.0/               |
 | extras;google;instantapps        | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/        |
 | patcher;v4                       | 1          | SDK Patch Applier v4                | patcher/v4/                       |
-| platform-tools                   | 34.0.4     | Android SDK Platform-Tools          | platform-tools/                   |
+| platform-tools                   | 34.0.5     | Android SDK Platform-Tools          | platform-tools/                   |
 | platforms;android-34             | 2          | Android SDK Platform 34             | platforms/android-34/             |
 
 </details>
@@ -359,7 +359,7 @@ extras fastlane <version>
 
 The [Android NDK](https://developer.android.com/ndk) is a toolset that lets you implement parts of your app in native code, using languages such as C and C++. For certain types of apps, this can help you reuse code libraries written in those languages.
 
-This command allows you to install NDK and CMAKE using the latest versions available (NDK: `23.0.7599858`; CMAKE: `3.18.1`):
+This command allows you to install NDK and CMAKE using the latest versions available (NDK: `26.1.10909125`; CMAKE: `3.22.1`):
 
 ```bash
 extras ndk
