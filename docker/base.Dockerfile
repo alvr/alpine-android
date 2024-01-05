@@ -28,4 +28,3 @@ COPY ./extras /bin
 WORKDIR /home/android
 
 CMD ["/bin/bash"]
-
