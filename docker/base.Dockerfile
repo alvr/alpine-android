@@ -11,7 +11,7 @@ ENV ANDROID_HOME ${ANDROID_SDK_ROOT}
 ENV PATH $PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
 RUN apk upgrade && \ 
-    apk add --no-cache bash curl git unzip wget coreutils openssh-client && \ 
+    apk add --no-cache bash curl git unzip wget coreutils openssh-client tar && \ 
     rm -rf /tmp/* && \ 
     rm -rf /var/cache/apk/* && \ 
     wget -q https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip -O /tmp/tools.zip && \ 
@@ -28,3 +28,4 @@ COPY ./extras /bin
 WORKDIR /home/android
 
 CMD ["/bin/bash"]
+
