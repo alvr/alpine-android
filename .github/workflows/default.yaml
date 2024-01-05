@@ -22,7 +22,7 @@ env:
   QUAY_USER: alvr
 
   DEFAULT_JDK_VERSION: 11
-  LATEST_STABLE_API: 33
+  LATEST_STABLE_API: 34
 
 jobs:
   build_base_images:
@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdk: [8, 11, 17]
+        jdk: [8, 11, 17, 21]
 
     steps:
       - name: Checkout
@@ -49,9 +49,9 @@ jobs:
               11)
                 CMDLINE_VERSION="10.0"
                 SDK_TOOLS_VERSION="9862592" ;;
-              17)
-                CMDLINE_VERSION="11.0"
-                SDK_TOOLS_VERSION="10406996" ;;
+              *)
+                CMDLINE_VERSION="12.0"
+                SDK_TOOLS_VERSION="11076708" ;;
           esac
           echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
           echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
@@ -113,7 +113,7 @@ jobs:
       fail-fast: false
       matrix:
         android-api: [28, 29, 30, 31, 32, 33, 34]
-        jdk: [8, 11, 17]
+        jdk: [8, 11, 17, 21]
 
     steps:
       - name: Checkout

@@ -36,6 +36,7 @@ There are three variants of the image, all based on `bellsoft/liberica-openjdk-a
 * JDK8 images are based on Liberica JDK 8u392-9 and uses the tag's suffix `-jdk8`.
 * JDK11 images are based on Liberica JDK 11.0.21-10 and uses the tag's suffix `-jdk11`.
 * JDK17 images are based on Liberica JDK 17.0.9-11 and uses the tag's suffix `-jdk17`.
+* JDK21 images are based on Liberica JDK 21.0.1+15 and uses the tag's suffix `-jdk21`.
 
 ### Which one should I use?
 
@@ -44,21 +45,20 @@ There are three variants of the image, all based on `bellsoft/liberica-openjdk-a
 | 8           | < 7.0.0             |
 | 11          | >= 7.0.0 && < 8.0.0 |
 | 17          | >= 8.0.0            |
+| 21          | >= 8.2.1            |
 
 ## Tagging
 
-| API level                   | JDK8                             | JDK11                                                      | JDK17                              |
-|-----------------------------|----------------------------------|------------------------------------------------------------|------------------------------------|
-| Base Image                  | `jdk8` `latest-jdk8`             | `jdk11`, `latest`, `latest-jdk11`                          | `jdk17`, `latest-jdk17`            |
-| Android 9.0 (28)            | `android-28-jdk8`                | `android-28`, `android-28-jdk11`                           | `android-28-jdk17`                 |
-| Android 10 (29)             | `android-29-jdk8`                | `android-29`, `android-29-jdk11`                           | `android-29-jdk17`                 |
-| Android 11 (30)             | `android-30-jdk8`                | `android-30`, `android-30-jdk11`                           | `android-30-jdk17`                 |
-| Android 12 (31)             | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                           | `android-31-jdk17`                 |
-| Android 12L (32)            | `android-32-jdk8`                | `android-32`, `android-32-jdk11`                           | `android-32-jdk17`                 |
-| Android 13 (33)             | `android-33-jdk8`, `latest-jdk8` | `android-33`, `android-33-jdk11`, `latest`, `latest-jdk11` | `android-33-jdk17`, `latest-jdk17` |
-| Android 14 (34)             | `android-34-jdk8`                | `android-34`, `android-34-jdk11`                           | `android-34-jdk17`                 |
-
-> :warning: The tags `latest` and `android-XX` will be using the JDK8 base image until July 28th, 2022. After that date, those tags will be targeting JDK11.
+| API level                   | JDK8                             | JDK11                                                      | JDK17                              | JDK21                              |
+|-----------------------------|----------------------------------|------------------------------------------------------------|------------------------------------|------------------------------------|
+| Base Image                  | `jdk8` `latest-jdk8`             | `jdk11`, `latest`, `latest-jdk11`                          | `jdk17`, `latest-jdk17`            | `jdk21`, `latest-jdk21`            |
+| Android 9.0 (28)            | `android-28-jdk8`                | `android-28`, `android-28-jdk11`                           | `android-28-jdk17`                 | `android-28-jdk21`                 |
+| Android 10 (29)             | `android-29-jdk8`                | `android-29`, `android-29-jdk11`                           | `android-29-jdk17`                 | `android-29-jdk21`                 |
+| Android 11 (30)             | `android-30-jdk8`                | `android-30`, `android-30-jdk11`                           | `android-30-jdk17`                 | `android-30-jdk21`                 |
+| Android 12 (31)             | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                           | `android-31-jdk17`                 | `android-31-jdk21`                 |
+| Android 12L (32)            | `android-32-jdk8`                | `android-32`, `android-32-jdk11`                           | `android-32-jdk17`                 | `android-32-jdk21`                 |
+| Android 13 (33)             | `android-33-jdk8`                | `android-33`, `android-33-jdk11`                           | `android-33-jdk17`                 | `android-33-jdk21`                 |
+| Android 14 (34)             | `android-34-jdk8`, `latest-jdk8` | `android-34`, `android-34-jdk11`, `latest`, `latest-jdk11` | `android-34-jdk17`, `latest-jdk17` | `android-34-jdk21`, `latest-jdk21` |
 
 ### Versioning
 
@@ -79,7 +79,7 @@ A valid example would be `android-30-jdk11-v2021.01.01`. [Here](https://github.c
 <details>
   <summary>See content of Android Base image</summary>
   
-![Docker Android Base JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk8?label=jdk8%20image%20size) ![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=jdk11%20image%20size) ![Docker Android Base JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk17?label=jdk17%20image%20size)
+![Docker Android Base JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk8?label=jdk8%20image%20size) ![Docker Android Base JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk11?label=jdk11%20image%20size) ![Docker Android Base JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk17?label=jdk17%20image%20size) ![Docker Android Base JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android-base/jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -106,7 +106,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 9 (Pie) image</summary>
 
-![Docker Android 9 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=jdk8%20image%20size) ![Docker Android 9 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=jdk11%20image%20size) ![Docker Android 9 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=jdk17%20image%20size)
+![Docker Android 9 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk8?label=jdk8%20image%20size) ![Docker Android 9 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk11?label=jdk11%20image%20size) ![Docker Android 9 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk17?label=jdk17%20image%20size) ![Docker Android 9 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-28-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -120,7 +120,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 10 (Q) image</summary>
 
-![Docker Android 10 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=jdk8%20image%20size) ![Docker Android 10 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=jdk11%20image%20size) ![Docker Android 10 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=jdk17%20image%20size)
+![Docker Android 10 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk8?label=jdk8%20image%20size) ![Docker Android 10 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk11?label=jdk11%20image%20size) ![Docker Android 10 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk17?label=jdk17%20image%20size) ![Docker Android 10 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-29-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -134,7 +134,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 11 (R) image</summary>
 
-![Docker Android 11 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=jdk8%20image%20size) ![Docker Android 11 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=jdk11%20image%20size) ![Docker Android 11 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=jdk17%20image%20size)
+![Docker Android 11 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk8?label=jdk8%20image%20size) ![Docker Android 11 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk11?label=jdk11%20image%20size) ![Docker Android 11 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk17?label=jdk17%20image%20size) ![Docker Android 11 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-30-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -148,7 +148,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 12 (S) image</summary>
 
-![Docker Android 12 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=jdk8%20image%20size) ![Docker Android 12 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=jdk11%20image%20size) ![Docker Android 12 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=jdk17%20image%20size)
+![Docker Android 12 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk8?label=jdk8%20image%20size) ![Docker Android 12 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk11?label=jdk11%20image%20size) ![Docker Android 12 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk17?label=jdk17%20image%20size) ![Docker Android 12 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-31-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -162,7 +162,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 12L image</summary>
 
-![Docker Android 12L JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk8?label=jdk8%20image%20size) ![Docker Android 12L JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk11?label=jdk11%20image%20size) ![Docker Android 12L JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk17?label=jdk17%20image%20size)
+![Docker Android 12L JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk8?label=jdk8%20image%20size) ![Docker Android 12L JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk11?label=jdk11%20image%20size) ![Docker Android 12L JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk17?label=jdk17%20image%20size) ![Docker Android 12 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-32-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -176,7 +176,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 13 (Tiramisu) image</summary>
 
-![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk17?label=jdk17%20image%20size)
+![Docker Android 13 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk8?label=jdk8%20image%20size) ![Docker Android 13 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk11?label=jdk11%20image%20size) ![Docker Android 13 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk17?label=jdk17%20image%20size) ![Docker Android 13 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-33-jdk21?label=jdk21%20image%20size)
 
 | Path                      | Version | Description                         | Location                   |
 |---------------------------|---------|-------------------------------------|----------------------------|
@@ -191,7 +191,7 @@ RUN apk add --no-cache <list-of-packages>
 <details>
   <summary>See content of Android 14 (Upside-down Cake) image</summary>
 
-![Docker Android 14 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk8?label=jdk8%20image%20size) ![Docker Android 14 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk11?label=jdk11%20image%20size) ![Docker Android 14 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk17?label=jdk17%20image%20size)
+![Docker Android 14 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk8?label=jdk8%20image%20size) ![Docker Android 14 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk11?label=jdk11%20image%20size) ![Docker Android 14 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk17?label=jdk17%20image%20size) ![Docker Android 14 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-34-jdk21?label=jdk21%20image%20size)
 
 | Path                             | Version    | Description                         | Location                          |
 |----------------------------------|------------|-------------------------------------|-----------------------------------|
