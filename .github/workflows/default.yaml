@@ -29,13 +29,12 @@ jobs:
     name: Build Alpine Android Base Image
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         jdk: [8, 11, 17, 21]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set environment variables
         shell: sh
@@ -50,15 +49,15 @@ jobs:
                 CMDLINE_VERSION="10.0"
                 SDK_TOOLS_VERSION="9862592" ;;
               *)
-                CMDLINE_VERSION="12.0"
-                SDK_TOOLS_VERSION="11076708" ;;
+                CMDLINE_VERSION="13.0"
+                SDK_TOOLS_VERSION="11479570" ;;
           esac
           echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
           echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
 
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ env.DH_IMAGE_BASE_NAME }}
@@ -70,30 +69,30 @@ jobs:
             type=raw,value=latest,enable=${{ matrix.jdk == env.DEFAULT_JDK_VERSION }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASS }}
 
       - name: Login to Quay
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: quay.io
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android Base JDK${{ matrix.jdk }}
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./docker
           file: ./docker/base.Dockerfile
@@ -110,14 +109,13 @@ jobs:
     needs: [build_base_images]
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
-        android-api: [28, 29, 30, 31, 32, 33, 34]
+        android-api: [28, 29, 30, 31, 32, 33, 34, VanillaIceCream]
         jdk: [8, 11, 17, 21]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set environment variables
         shell: sh
@@ -132,12 +130,13 @@ jobs:
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
               33) BUILD_TOOLS_VERSION="33.0.2" ;;
               34) BUILD_TOOLS_VERSION="34.0.0" ;;
+              VanillaIceCream) BUILD_TOOLS_VERSION="35.0.0-rc3" ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ env.DH_IMAGE_NAME }}
@@ -151,30 +150,30 @@ jobs:
             type=raw,value=latest,enable=${{ matrix.android-api == env.LATEST_STABLE_API && matrix.jdk == env.DEFAULT_JDK_VERSION }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASS }}
 
       - name: Login to Quay
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: quay.io
           username: ${{ env.QUAY_USER }}
           password: ${{ secrets.QUAY_PASS }}
 
       - name: Build Android API ${{ matrix.android-api }} JDK${{ matrix.jdk }}
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./docker
           file: ./docker/android.Dockerfile
