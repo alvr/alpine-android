@@ -6,9 +6,9 @@ LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 ARG CMDLINE_VERSION
 ARG SDK_TOOLS_VERSION
 
-ENV ANDROID_SDK_ROOT "/opt/sdk"
-ENV ANDROID_HOME ${ANDROID_SDK_ROOT}
-ENV PATH $PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
+ENV ANDROID_SDK_ROOT="/opt/sdk"
+ENV ANDROID_HOME=${ANDROID_SDK_ROOT}
+ENV PATH=$PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
 RUN apk upgrade && \
     apk add --no-cache bash curl git unzip wget coreutils openssh-client tar && \

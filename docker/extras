@@ -2,7 +2,7 @@
 
 set -e
 
-DEFAULT_NDK=26.1.10909125
+DEFAULT_NDK=27.0.12077973
 DEFAULT_CMAKE=3.22.1
 
 install_fastlane() {
