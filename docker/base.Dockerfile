@@ -11,7 +11,7 @@ ENV ANDROID_HOME=${ANDROID_SDK_ROOT}
 ENV PATH=$PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
 
 RUN apk upgrade && \
-    apk add --no-cache bash curl git unzip wget coreutils openssh-client tar && \
+    apk add --no-cache bash curl git git-lfs unzip wget coreutils openssh-client tar && \
     rm -rf /tmp/* && \
     rm -rf /var/cache/apk/* && \
     mkdir -p ${ANDROID_SDK_ROOT} && \
