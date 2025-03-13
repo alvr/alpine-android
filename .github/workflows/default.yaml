@@ -21,8 +21,8 @@ env:
   DOCKERHUB_USER: alvrme
   QUAY_USER: alvr
 
-  DEFAULT_JDK_VERSION: 11
-  LATEST_STABLE_API: 34
+  DEFAULT_JDK_VERSION: 17
+  LATEST_STABLE_API: 35
 
 jobs:
   build_base_images:
@@ -49,8 +49,8 @@ jobs:
                 CMDLINE_VERSION="10.0"
                 SDK_TOOLS_VERSION="9862592" ;;
               *)
-                CMDLINE_VERSION="13.0"
-                SDK_TOOLS_VERSION="11479570" ;;
+                CMDLINE_VERSION="19.0"
+                SDK_TOOLS_VERSION="13114758" ;;
           esac
           echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
           echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
@@ -111,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        android-api: [28, 29, 30, 31, 32, 33, 34, 35]
+        android-api: [28, 29, 30, 31, 32, 33, 34, 35, 36]
         jdk: [8, 11, 17, 21]
 
     steps:
@@ -131,7 +131,11 @@ jobs:
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
               33) BUILD_TOOLS_VERSION="33.0.2" ;;
               34) BUILD_TOOLS_VERSION="34.0.0" ;;
-              35) BUILD_TOOLS_VERSION="35.0.0" ;;
+              35) BUILD_TOOLS_VERSION="35.0.1" ;;
+              36) BUILD_TOOLS_VERSION="36.0.0" ;;
+              *)
+                echo "Unsupported Android API version: ${{ matrix.android-api }}"
+                exit 1 ;;
           esac
           echo "BUILD_TOOLS_VERSION=$BUILD_TOOLS_VERSION" >> $GITHUB_ENV
 
