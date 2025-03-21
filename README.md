@@ -1,7 +1,7 @@
 # Alpine Android Docker Images
 
 <p align="center">
-  <a href="https://alvr.dev/en/projects/docker/alpine-android/"><img alt="Alpine Android" src="https://alvr.dev/images/showcase/alpine-android/docker-android.webp"/></a>
+  <a href="https://alvr.dev/en/projects/docker/alpine-android/"><img alt="Alpine Android" src="https://alvr.dev/projects/alpine-android/docker-android.webp"/></a>
 </p>
 
 <p align="center">
