@@ -19,12 +19,13 @@ RUN apk upgrade && \
     mv ${ANDROID_SDK_ROOT}/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION} && \
     mkdir -p ~/.android/ && \
     touch ~/.android/repositories.cfg && \
-    chmod +x ${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin/sdkmanager && \
+    chmod +x ${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin/* && \
     yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses && \
     sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --install "platform-tools" "extras;google;instantapps"
 
 COPY ./extras /bin
 
 WORKDIR /home/android
+
 
 CMD ["/bin/bash"]
