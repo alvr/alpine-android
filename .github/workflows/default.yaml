@@ -22,7 +22,7 @@ env:
   QUAY_USER: alvr
 
   DEFAULT_JDK_VERSION: 17
-  LATEST_STABLE_API: 35
+  LATEST_STABLE_API: 36
 
 jobs:
   build_base_images:
@@ -49,8 +49,8 @@ jobs:
                 CMDLINE_VERSION="10.0"
                 SDK_TOOLS_VERSION="9862592" ;;
               *)
-                CMDLINE_VERSION="19.0"
-                SDK_TOOLS_VERSION="13114758" ;;
+                CMDLINE_VERSION="20.0"
+                SDK_TOOLS_VERSION="14742923" ;;
           esac
           echo "CMDLINE_VERSION=${CMDLINE_VERSION}" >> $GITHUB_ENV
           echo "SDK_TOOLS_VERSION=${SDK_TOOLS_VERSION}" >> $GITHUB_ENV
@@ -129,10 +129,10 @@ jobs:
               30) BUILD_TOOLS_VERSION="30.0.3" ;;
               31) BUILD_TOOLS_VERSION="31.0.0" ;;
               32) BUILD_TOOLS_VERSION="32.0.0" ;;
-              33) BUILD_TOOLS_VERSION="33.0.2" ;;
+              33) BUILD_TOOLS_VERSION="33.0.3" ;;
               34) BUILD_TOOLS_VERSION="34.0.0" ;;
               35) BUILD_TOOLS_VERSION="35.0.1" ;;
-              36) BUILD_TOOLS_VERSION="36.0.0" ;;
+              36) BUILD_TOOLS_VERSION="36.1.0" ;;
               *)
                 echo "Unsupported Android API version: ${{ matrix.android-api }}"
                 exit 1 ;;

@@ -1,6 +1,6 @@
 ARG JDK_VERSION
 
-FROM alvrme/alpine-android-base:jdk${JDK_VERSION}
+FROM ghcr.io/alvr/alpine-android-base:jdk${JDK_VERSION}
 LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ARG BUILD_TOOLS
