@@ -111,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        android-api: [28, 29, 30, 31, 32, 33, 34, 35, 36]
+        android-api: [28, 29, 30, 31, 32, 33, 34, 35, 36, 36.1, CinnamonBun]
         jdk: [8, 11, 17, 21]
 
     steps:
@@ -133,6 +133,8 @@ jobs:
               34) BUILD_TOOLS_VERSION="34.0.0" ;;
               35) BUILD_TOOLS_VERSION="35.0.1" ;;
               36) BUILD_TOOLS_VERSION="36.1.0" ;;
+              36.1) BUILD_TOOLS_VERSION="36.1.0" ;;
+              CinnamonBun) BUILD_TOOLS_VERSION="37.0.0-rc1" ;;
               *)
                 echo "Unsupported Android API version: ${{ matrix.android-api }}"
                 exit 1 ;;

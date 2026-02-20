@@ -49,18 +49,20 @@ There are four variants of the image, all based on `bellsoft/liberica-openjdk-al
 
 ## Tagging
 
-| API level        | JDK8                             | JDK11                                            | JDK17                                        | JDK21                              |
-|------------------|----------------------------------|--------------------------------------------------|----------------------------------------------|------------------------------------|
-| Base Image       | `jdk8` `latest-jdk8`             | `jdk11`, `latest-jdk11`                          | `jdk17`, `latest`, `latest-jdk17`            | `jdk21`, `latest-jdk21`            |
-| Android 9.0 (28) | `android-28-jdk8`                | `android-28`, `android-28-jdk11`                 | `android-28-jdk17`                           | `android-28-jdk21`                 |
-| Android 10 (29)  | `android-29-jdk8`                | `android-29`, `android-29-jdk11`                 | `android-29-jdk17`                           | `android-29-jdk21`                 |
-| Android 11 (30)  | `android-30-jdk8`                | `android-30`, `android-30-jdk11`                 | `android-30-jdk17`                           | `android-30-jdk21`                 |
-| Android 12 (31)  | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                 | `android-31-jdk17`                           | `android-31-jdk21`                 |
-| Android 12L (32) | `android-32-jdk8`                | `android-32`, `android-32-jdk11`                 | `android-32-jdk17`                           | `android-32-jdk21`                 |
-| Android 13 (33)  | `android-33-jdk8`                | `android-33`, `android-33-jdk11`                 | `android-33-jdk17`                           | `android-33-jdk21`                 |
-| Android 14 (34)  | `android-34-jdk8`                | `android-34`, `android-34-jdk11`                 | `android-34-jdk17`                           | `android-34-jdk21`                 |
-| Android 15 (35)  | `android-35-jdk8`                | `android-35`, `android-35-jdk11`                 | `android-35-jdk17`                           | `android-35-jdk21`                 |
-| Android 16 (36)  | `android-36-jdk8`, `latest-jdk8` | `android-36`, `android-36-jdk11`, `latest-jdk11` | `android-36-jdk17`, `latest`, `latest-jdk17` | `android-36-jdk21`, `latest-jdk21` |
+| API level         | JDK8                             | JDK11                                            | JDK17                                        | JDK21                              |
+|-------------------|----------------------------------|--------------------------------------------------|----------------------------------------------|------------------------------------|
+| Base Image        | `jdk8` `latest-jdk8`             | `jdk11`, `latest-jdk11`                          | `jdk17`, `latest`, `latest-jdk17`            | `jdk21`, `latest-jdk21`            |
+| Android 9.0 (28)  | `android-28-jdk8`                | `android-28`, `android-28-jdk11`                 | `android-28-jdk17`                           | `android-28-jdk21`                 |
+| Android 10 (29)   | `android-29-jdk8`                | `android-29`, `android-29-jdk11`                 | `android-29-jdk17`                           | `android-29-jdk21`                 |
+| Android 11 (30)   | `android-30-jdk8`                | `android-30`, `android-30-jdk11`                 | `android-30-jdk17`                           | `android-30-jdk21`                 |
+| Android 12 (31)   | `android-31-jdk8`                | `android-31`, `android-31-jdk11`                 | `android-31-jdk17`                           | `android-31-jdk21`                 |
+| Android 12L (32)  | `android-32-jdk8`                | `android-32`, `android-32-jdk11`                 | `android-32-jdk17`                           | `android-32-jdk21`                 |
+| Android 13 (33)   | `android-33-jdk8`                | `android-33`, `android-33-jdk11`                 | `android-33-jdk17`                           | `android-33-jdk21`                 |
+| Android 14 (34)   | `android-34-jdk8`                | `android-34`, `android-34-jdk11`                 | `android-34-jdk17`                           | `android-34-jdk21`                 |
+| Android 15 (35)   | `android-35-jdk8`                | `android-35`, `android-35-jdk11`                 | `android-35-jdk17`                           | `android-35-jdk21`                 |
+| Android 16 (36.0) | `android-36-jdk8`, `latest-jdk8` | `android-36`, `android-36-jdk11`, `latest-jdk11` | `android-36-jdk17`, `latest`, `latest-jdk17` | `android-36-jdk21`, `latest-jdk21` |
+| Android 16 (36.1) | `android-36.1-jdk8`              | `android-36.1`, `android-36.1-jdk11`             | `android-36.1-jdk17`                         | `android-36.1-jdk21`               |
+| Android 17 (37)   | `android-37-jdk8`, `latest-jdk8` | `android-37`, `android-37-jdk11`, `latest-jdk11` | `android-37-jdk17`, `latest`, `latest-jdk17` | `android-37-jdk21`, `latest-jdk21` |
 
 ### Versioning
 
@@ -232,6 +234,36 @@ RUN apk add --no-cache <list-of-packages>
 | patcher;v4                | 1          | SDK Patch Applier v4                | patcher/v4/                |
 | platform-tools            | 36.0.2     | Android SDK Platform-Tools          | platform-tools/            |
 | platforms;android-36      | 2          | Android SDK Platform 36             | platforms/android-36/      |
+
+</details>
+
+<details>
+  <summary>See content of Android 16.1 (Baklava) image</summary>
+
+![Docker Android 16.1 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-36.1-jdk8?label=jdk8%20image%20size) ![Docker Android 16.1 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-36.1-jdk11?label=jdk11%20image%20size) ![Docker Android 16.1 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-36.1-jdk17?label=jdk17%20image%20size) ![Docker Android 16.1 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-36.1-jdk21?label=jdk21%20image%20size)
+
+| Path                      | Version    | Description                         | Location                   |
+|---------------------------|------------|-------------------------------------|----------------------------|
+| build-tools;36.1.0        | 36.1.0     | Android SDK Build-Tools             | build-tools/36.1.0/        |
+| extras;google;instantapps | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/ |
+| patcher;v4                | 1          | SDK Patch Applier v4                | patcher/v4/                |
+| platform-tools            | 36.0.2     | Android SDK Platform-Tools          | platform-tools/            |
+| platforms;android-36.1    | 2          | Android SDK Platform 36.1           | platforms/android-36.1/    |
+
+</details>
+
+<details>
+  <summary>See content of Android 17 (CinnamonBun) image</summary>
+
+![Docker Android 17 JDK8 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-37-jdk8?label=jdk8%20image%20size) ![Docker Android 17 JDK11 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-37-jdk11?label=jdk11%20image%20size) ![Docker Android 17 JDK17 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-37-jdk17?label=jdk17%20image%20size) ![Docker Android 17 JDK21 Size](https://img.shields.io/docker/image-size/alvrme/alpine-android/android-37-jdk21?label=jdk21%20image%20size)
+
+| Path                          | Version    | Description                         | Location                       |
+|-------------------------------|------------|-------------------------------------|--------------------------------|
+| build-tools;37.0.0-rc1        | 37.0.0-rc1 | Android SDK Build-Tools             | build-tools/37.0.0-rc1/        |
+| extras;google;instantapps     | 1.9.0      | Google Play Instant Development SDK | extras/google/instantapps/     |
+| patcher;v4                    | 1          | SDK Patch Applier v4                | patcher/v4/                    |
+| platform-tools                | 36.0.2     | Android SDK Platform-Tools          | platform-tools/                |
+| platforms;android-CinnamonBun | 1          | Android SDK Platform CinnamonBun    | platforms/android-CinnamonBun/ |
 
 </details>
 
