@@ -14,7 +14,6 @@ RUN --mount=type=cache,target=/root/.android \
     sdkmanager --sdk_root="${ANDROID_SDK_ROOT}" \
         "build-tools;${BUILD_TOOLS}" \
         "platforms;android-${TARGET_SDK}"; \
-    sdkmanager --sdk_root="${ANDROID_SDK_ROOT}" \
-        --uninstall emulator || true
+    rm -rf "${ANDROID_SDK_ROOT}/emulator"
 
 CMD ["/bin/bash"]

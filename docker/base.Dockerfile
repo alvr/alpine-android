@@ -1,6 +1,6 @@
 ARG JDK_VERSION
 
-FROM ghcr.io/bell-sw/liberica-runtime-container:jdk-${JDK_VERSION}-musl
+FROM ghcr.io/bell-sw/liberica-runtime-container:jdk-${JDK_VERSION}-glibc
 LABEL maintainer="Álvaro Salcedo García <alvaro@alvr.dev>"
 
 ARG CMDLINE_VERSION
