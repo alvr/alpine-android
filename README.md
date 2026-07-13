@@ -31,7 +31,7 @@
 
 ## Variants
 
-There are four variants of the image, all based on `bellsoft/liberica-runtime-container` with Alpaquita Linux (musl):
+There are four variants of the image, all based on `bellsoft/liberica-runtime-container` with Alpaquita Linux (glibc):
 
 * JDK8 images are based on Liberica JDK 8u492 and uses the tag's suffix `-jdk8`.
 * JDK11 images are based on Liberica JDK 11.0.31 and uses the tag's suffix `-jdk11`.
@@ -100,7 +100,7 @@ Use the [following configuration](https://github.com/alvr/alpine-android#use-as-
 RUN sdkmanager <list-of-packages>
 ```
 
-If you want to install an Alpine package [available](https://packages.bell-sw.com/ui/contents?libc=musl). To install an Android package, include the following line on your Dockerfile:
+If you want to install an Alpine package [available](https://packages.bell-sw.com/ui/contents?libc=glibc). To install an Android package, include the following line on your Dockerfile:
 
 ```dockerfile
 RUN apk add --no-cache <list-of-packages>

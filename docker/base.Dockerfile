@@ -16,6 +16,7 @@ RUN apk add --no-cache \
     bash \
     coreutils \
     curl \
+    libgcc \
     git \
     openssh-client \
     tar \
