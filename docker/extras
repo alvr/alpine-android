@@ -8,8 +8,7 @@ DEFAULT_CMAKE=4.1.2
 install_fastlane() {
 	VERSION=$2
 
-	apk add --no-cache g++ make ruby ruby-dev &&
-		rm -rf /tmp/* /var/tmp/*
+	apk add --no-cache annobin g++ make ruby ruby-dev
 
 	if [ -z "$VERSION" ]; then
 		echo "No version specified for fastlane, installing latest"
